@@ -8,37 +8,40 @@
 
 
 
-/* 3) Select specific columns and rows from the Sales.SalesOrderHeader table where SalespersonID is 279 */
+/* 3) Select specific columns and rows from the Sales.SalesOrderHeader table 
+where SalespersonID = 279 */
 
 
 
-/* 4) Select specific columns and rows from the Sales.SalesOrderHeader table where SalespersonID is 279 or 282 */
+/* 4) Select specific columns and rows from the Sales.SalesOrderHeader table 
+where SalespersonID = 279 or SalespersonID = 282 */
 
 
 
 /* 5) Select specific columns and rows from the Sales.SalesOrderHeader table 
-where SalespersonID is 279 and the year of OrderDate = 2014 
-The results should be ordered by OrderDate */
+where SalespersonID = 279 and the OrderDate year = 2014 
+ordered by OrderDate */
 
 
 
 /* 6) Select specific columns and rows from the Sales.SalesOrderHeader table 
-where SalespersonID is 279 and the year OrderDate = 2014 
-The results should be ordered by OrderDate in descending order */
+where SalespersonID = 279 and the OrderDate year = 2014 
+ordered by OrderDate descending*/
 
 
 
 /* 7) Select specific columns and rows from the Sales.SalesOrderHeader table 
 where SalespersonID = 279 and the OrderDate year = 2014 
-The results should be ordered by OrderDate in descending order and by SalesOrderId in descending order */
+ordered by OrderDate and by SalesOrderId descending */
 
 
 
 /* Working with INSERT */
 /***************************************************************
-1)Write an INSERT statement to add a record to the Employees table 
-with the following values:
+1)
 
+Write an INSERT statement to add a record to the Employees table 
+with the following values:
 •Title: Sales Representative
 •Titleofcourtesy: Mr
 •FirstName: Laurence
@@ -52,9 +55,10 @@ with the following values:
 *****************************************************************/
 
 /***************************************************************
-2) Write an INSERT statement to add a record to the Employees table 
-with the following values:
+2)
 
+Write an INSERT statement to add a record to the Employees table 
+with the following values:
 •Title: Sales Representative
 •Titleofcourtesy: Mr
 •FirstName: Laurence
