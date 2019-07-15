@@ -12,6 +12,7 @@ namespace CarRentalApp.Context
         public DbSet<Car> Cars { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
         }
     }
 }

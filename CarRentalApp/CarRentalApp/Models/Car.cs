@@ -1,25 +1,27 @@
-﻿namespace CarRentalApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CarRentalApp.Models
 {
     public class Car
     {
-        
-            private string brand { get; set; }
-            private string model { get; set; }
-            private short nrOfDoors { get; set; }
-            private string licensePlate { get; set; }
-            private short nrOfSeats { get; set; }
-            private bool hasAutomaticGearbox { get; set; }
-            private float pricePerDay { get; set; }
+            [Key]
+            public  string LicensePlate { get; set; }
+            public  string Brand { get; set; }
+            public  string Model { get; set; }
+            public  short NrOfDoors { get; set; }
+            public  short NrOfSeats { get; set; }
+            public  bool HasAutomaticGearbox { get; set; }
+            public  float PricePerDay { get; set; }
 
-            public Car(string brand, string model, short nrOfDoors, string licensePlaye, short nrOfSeats, bool hasAutomaticGearbox, float pricePerDay)
+            public Car(string brand, string model, short nrOfDoors, string licensePlate, short nrOfSeats, bool hasAutomaticGearbox, float pricePerDay)
             {
-                this.brand = brand;
-                this.model = model;
-                this.nrOfDoors = nrOfDoors;
-                this.licensePlate = licensePlate;
-                this.nrOfSeats = nrOfSeats;
-                this.hasAutomaticGearbox = hasAutomaticGearbox;
-                this.pricePerDay = pricePerDay;
+                this.Brand = brand;
+                this.Model = model;
+                this.NrOfDoors = nrOfDoors;
+                this.LicensePlate = licensePlate;
+                this.NrOfSeats = nrOfSeats;
+                this.HasAutomaticGearbox = hasAutomaticGearbox;
+                this.PricePerDay = pricePerDay;
             }
 
         
