@@ -30,10 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\car.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\cars.service.ts" />
   </ItemGroup>

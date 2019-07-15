@@ -10,6 +10,7 @@ namespace CarRentalApp.Context
 
         }
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Rentals> Rentals { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Car>().HasData(
