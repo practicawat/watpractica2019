@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,11 +8,12 @@ namespace CarRentalApp.Models
 {
     public class InfoUser
     {
+        [Key]
         public int ID_user { get; set; }
-        public string First_Name { get;  private set; }
-        public string Last_Name { get; private set; }
-        public string Email { get; private set; }
-        public int Phone_Number { get; private set; }
+        public string First_Name { get;  set; }
+        public string Last_Name { get; set; }
+        public string Email { get; set; }
+        public Int32 Phone_Number { get; set; }
 
         public InfoUser()
         {
