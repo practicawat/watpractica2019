@@ -1,6 +1,6 @@
 ﻿namespace CarRentalApp.Models
 {
-    public class Car
+    public class Car 
     {
         public int CarId { get; set; }
         public string Name { get; set; }        
