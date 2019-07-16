@@ -49,14 +49,14 @@ namespace CarRentalApp.Controllers
 
         // PUT: api/InfoUser/5
         [HttpPut("{ID_user}")]
-        public async Task<IActionResult> PutInfoUsers([FromRoute] int id, [FromBody] InfoUser infoUser)
+        public async Task<IActionResult> PutInfoUsers([FromRoute] int ID_user, [FromBody] InfoUser infoUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != infoUser.ID_user)
+            if (ID_user != infoUser.ID_user)
             {
                 return BadRequest();
             }
@@ -69,7 +69,7 @@ namespace CarRentalApp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!UserExists(ID_user))
                 {
                     return NotFound();
                 }
@@ -98,15 +98,15 @@ namespace CarRentalApp.Controllers
         }
 
         // DELETE: api/InfoUser/5
-        [HttpDelete("{ID_user }")]
-        public async Task<IActionResult> DeleteUser([FromRoute] int id)
+        [HttpDelete("{ID_user}")]
+        public async Task<IActionResult> DeleteUser([FromRoute] int ID_user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.InfoUsers.FindAsync(id);
+            var user = await _context.InfoUsers.FindAsync(ID_user);
             if (user == null)
             {
                 return NotFound();

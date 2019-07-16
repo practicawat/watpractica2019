@@ -41,7 +41,7 @@ namespace CarRentalApp.Migrations
 
             modelBuilder.Entity("CarRentalApp.Models.InfoUser", b =>
                 {
-                    b.Property<int>("ID_user")
+                    b.Property<int>("IdUser")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -53,7 +53,7 @@ namespace CarRentalApp.Migrations
 
                     b.Property<int>("Phone_Number");
 
-                    b.HasKey("ID_user");
+                    b.HasKey("IdUser");
 
                     b.ToTable("InfoUsers");
                 });

@@ -27,7 +27,7 @@ namespace CarRentalApp.Migrations
                 name: "InfoUsers",
                 columns: table => new
                 {
-                    ID_user = table.Column<int>(nullable: false)
+                    IdUser = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     First_Name = table.Column<string>(nullable: true),
                     Last_Name = table.Column<string>(nullable: true),
@@ -36,7 +36,7 @@ namespace CarRentalApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InfoUsers", x => x.ID_user);
+                    table.PrimaryKey("PK_InfoUsers", x => x.IdUser);
                 });
         }
 

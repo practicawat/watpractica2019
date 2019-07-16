@@ -20,9 +20,10 @@ namespace CarRentalApp.Models
 
         }
 
-        public InfoUser(string first_name, string last_name, string email,
+        public InfoUser(int id,string first_name, string last_name, string email,
             int phone)
         {
+            this.ID_user=id;
             this.First_Name = first_name;
             this.Last_Name = last_name;
             this.Email = email;
