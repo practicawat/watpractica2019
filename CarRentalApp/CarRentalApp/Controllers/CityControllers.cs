@@ -29,7 +29,7 @@ namespace CarRentalApp.Controllers
         }
 
         // GET: api/City/5
-        [HttpGet("{IDCity}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetCity([FromRoute] int id)
         {
             
@@ -49,7 +49,7 @@ namespace CarRentalApp.Controllers
         }
 
         //  PUT: api/City/5
-        [HttpPut("{IDCity}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutCity([FromRoute] int id, [FromBody] City city)
         {
             if (!ModelState.IsValid)
@@ -85,12 +85,9 @@ namespace CarRentalApp.Controllers
 
         //  post: api/city
         [HttpPost]
-        public async Task<IActionResult> PostCity([FromBody] FormCollection collection)
+        public async Task<IActionResult> PostCity([FromBody] City city)
         {
-            int id = Int32.Parse(collection["IDCity"]);
-            string name = collection["CityName"];
-            string nameCounty = collection["CountyName"];
-            City city = new City(id, name, nameCounty);
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -103,7 +100,7 @@ namespace CarRentalApp.Controllers
         }
 
         // DELETE: api/Cars/5
-        [HttpDelete("{IDCity}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCity([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -111,16 +108,19 @@ namespace CarRentalApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            var city = await _context.Cities.FindAsync(id);
-            if (city == null)
+            City c= await _context.Cities.FindAsync(id);
+        
+
+
+            if (c == null)
             {
                 return NotFound();
             }
 
-            _context.Cities.Remove(city);
+            _context.Cities.Remove(c);
             await _context.SaveChangesAsync();
 
-            return Ok(city);
+            return Ok(c);
         }
 
         private bool CityExists(int id)

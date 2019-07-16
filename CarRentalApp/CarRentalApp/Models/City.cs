@@ -20,8 +20,7 @@ namespace CarRentalApp.Models
             this.CountyName = nameCounty;
         }
 
-        public City()
-        {
-        }
+        public City() { }
+
     }
 }
