@@ -22,7 +22,7 @@ namespace CarRentalApp.Models
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.InfoUserId = infoUserId;
-            this.StartDate = startDate;
+            this.CityStartId = cityStartId;
             this.CityEndId = cityEndId;
         }
     }

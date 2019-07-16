@@ -78,7 +78,7 @@ namespace CarRentalApp.Controllers
             return NoContent();
         }
 
-        // POST: api/ars
+        // POST: api/Rentals
         [HttpPost]
         public async Task<IActionResult> PostEmployee([FromBody] Rentals rentals)
         {
@@ -93,9 +93,9 @@ namespace CarRentalApp.Controllers
             return CreatedAtAction("GetRentals", new { id = rentals.RentalsId }, rentals);
         }
 
-        // DELETE: api/Cars/5
+        // DELETE: api/Rentals/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCar([FromRoute] int id)
+        public async Task<IActionResult> DeleteRental([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
