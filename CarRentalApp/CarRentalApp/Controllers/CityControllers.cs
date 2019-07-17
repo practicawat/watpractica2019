@@ -14,9 +14,9 @@ namespace CarRentalApp.Controllers
     [ApiController]
     public class CityController : ControllerBase
     {
-        private readonly CarDbContext _context;
+        private readonly CarRentalDbContext _context;
 
-        public CityController(CarDbContext context)
+        public CityController(CarRentalDbContext context)
         {
             _context = context;
         }
