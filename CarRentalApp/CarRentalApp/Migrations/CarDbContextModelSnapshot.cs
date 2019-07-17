@@ -45,11 +45,11 @@ namespace CarRentalApp.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("First_Name");
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("Last_Name");
+                    b.Property<string>("LastName");
 
-                    b.Property<int>("Phone_Number");
+                    b.Property<int>("PhoneNumber");
 
                     b.HasKey("IdUser");
 

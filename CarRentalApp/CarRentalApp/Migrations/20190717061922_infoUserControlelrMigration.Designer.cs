@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRentalApp.Migrations
 {
     [DbContext(typeof(CarDbContext))]
-    [Migration("20190715111044_UsersControllerMigration")]
-    partial class UsersControllerMigration
+    [Migration("20190717061922_infoUserControlelrMigration")]
+    partial class infoUserControlelrMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,11 +47,11 @@ namespace CarRentalApp.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("First_Name");
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("Last_Name");
+                    b.Property<string>("LastName");
 
-                    b.Property<int>("Phone_Number");
+                    b.Property<int>("PhoneNumber");
 
                     b.HasKey("IdUser");
 

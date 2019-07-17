@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarRentalApp.Migrations
 {
-    public partial class UsersControllerMigration : Migration
+    public partial class infoUserControlelrMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,10 +29,10 @@ namespace CarRentalApp.Migrations
                 {
                     IdUser = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    First_Name = table.Column<string>(nullable: true),
-                    Last_Name = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    Phone_Number = table.Column<int>(nullable: false)
+                    PhoneNumber = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

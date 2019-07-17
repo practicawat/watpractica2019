@@ -9,25 +9,25 @@ namespace CarRentalApp.Models
     public class InfoUser
     {
         [Key]
-        public int ID_user { get; set; }
-        public string First_Name { get;  set; }
-        public string Last_Name { get; set; }
+        public int IdUser { get; set; }
+        public string FirstName { get;  set; }
+        public string LastName { get; set; }
         public string Email { get; set; }
-        public Int32 Phone_Number { get; set; }
+        public Int32 PhoneNumber { get; set; }
 
         public InfoUser()
         {
 
         }
 
-        public InfoUser(int id,string first_name, string last_name, string email,
+        public InfoUser(int id,string firstName, string lastName, string email,
             int phone)
         {
-            this.ID_user=id;
-            this.First_Name = first_name;
-            this.Last_Name = last_name;
+            this.IdUser=id;
+            this.FirstName = firstName;
+            this.LastName = lastName;
             this.Email = email;
-            this.Phone_Number = phone;
+            this.PhoneNumber = phone;
         }
 
     }

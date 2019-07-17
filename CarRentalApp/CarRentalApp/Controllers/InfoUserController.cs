@@ -29,15 +29,15 @@ namespace CarRentalApp.Controllers
         }
 
         // GET: api/InfoUser/5
-        [HttpGet("{ID_user}")]
-        public async Task<IActionResult> GeInfoUsers([FromRoute] int ID_user)
+        [HttpGet("{IdUser}")]
+        public async Task<IActionResult> GeInfoUsers([FromRoute] int IdUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var infousers = await _context.InfoUsers.FindAsync(ID_user);
+            var infousers = await _context.InfoUsers.FindAsync(IdUser);
 
             if (infousers == null)
             {
@@ -48,15 +48,15 @@ namespace CarRentalApp.Controllers
         }
 
         // PUT: api/InfoUser/5
-        [HttpPut("{ID_user}")]
-        public async Task<IActionResult> PutInfoUsers([FromRoute] int ID_user, [FromBody] InfoUser infoUser)
+        [HttpPut("{IdUser}")]
+        public async Task<IActionResult> PutInfoUsers([FromRoute] int IdUser, [FromBody] InfoUser infoUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (ID_user != infoUser.ID_user)
+            if (IdUser != infoUser.IdUser)
             {
                 return BadRequest();
             }
@@ -69,7 +69,7 @@ namespace CarRentalApp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(ID_user))
+                if (!UserExists(IdUser))
                 {
                     return NotFound();
                 }
@@ -94,19 +94,19 @@ namespace CarRentalApp.Controllers
             _context.InfoUsers.Add(infoUser);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInfoUser", new { id = infoUser.ID_user }, infoUser);
+            return CreatedAtAction("GetInfoUser", new { id = infoUser.IdUser }, infoUser);
         }
 
         // DELETE: api/InfoUser/5
-        [HttpDelete("{ID_user}")]
-        public async Task<IActionResult> DeleteUser([FromRoute] int ID_user)
+        [HttpDelete("{IdUser}")]
+        public async Task<IActionResult> DeleteUser([FromRoute] int IdUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.InfoUsers.FindAsync(ID_user);
+            var user = await _context.InfoUsers.FindAsync(IdUser);
             if (user == null)
             {
                 return NotFound();
@@ -120,7 +120,7 @@ namespace CarRentalApp.Controllers
 
         private bool UserExists(int id)
         {
-            return _context.InfoUsers.Any(e => e.ID_user == id);
+            return _context.InfoUsers.Any(e => e.IdUser == id);
         }
     }
 }
