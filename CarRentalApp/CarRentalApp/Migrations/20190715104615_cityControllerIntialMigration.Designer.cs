@@ -3,14 +3,16 @@ using CarRentalApp.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarRentalApp.Migrations
 {
     [DbContext(typeof(CarDbContext))]
-    partial class CarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190715104615_cityControllerIntialMigration")]
+    partial class cityControllerIntialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,18 +22,19 @@ namespace CarRentalApp.Migrations
 
             modelBuilder.Entity("CarRentalApp.Models.Car", b =>
                 {
-                    b.Property<string>("LicensePlate")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("CarId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Brand");
+                    b.Property<string>("CompanyName");
 
-                    b.Property<bool>("HasAutomaticGearbox");
+                    b.Property<string>("Designation");
 
-                    b.Property<string>("Model");
+                    b.Property<string>("Name");
 
-                    b.Property<short>("NrOfDoors");
+                    b.Property<float>("Price");
 
-                    b.Property<short>("NrOfSeats");
+                    b.HasKey("CarId");
 
                     b.ToTable("Cars");
                 });
@@ -49,7 +52,6 @@ namespace CarRentalApp.Migrations
                     b.HasKey("IDCity");
 
                     b.ToTable("Cities");
-
                 });
 #pragma warning restore 612, 618
         }
