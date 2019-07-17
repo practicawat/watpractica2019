@@ -11,12 +11,11 @@ namespace CarRentalApp.Context
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Rentals> Rentals { get; set; }
+        public DbSet<City> Cities { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Car>().HasData(
-                new Car() { CarId = 1, Name = "John", Designation = "Developer", CompanyName = "XYZ Inc", Price = 30000 },
-                new Car() { CarId = 2, Name = "Chris", Designation = "Manager", CompanyName = "ABC Inc", Price = 50000 },
-                new Car() { CarId = 3, Name = "Mukesh", Designation = "Consultant", CompanyName = "XYZ Inc", Price = 20000 });
+
         }
     }
 }
