@@ -18,4 +18,6 @@ export class CarComponentComponent implements OnInit {
     });
   }
 
+  zileSaptamana = ["Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata", "Duminica"];
+
 }

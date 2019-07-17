@@ -1,0 +1,142 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  border-right: 1px solid #000;
+}
+
+  li a {
+    display: block;
+    color: rgb(8, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+    li a:link {
+      background-color: yellow;
+    }
+
+    li a:visited {
+      background-color: rgb(7, 245, 7);
+    }
+
+    li a:hover {
+      background-color: lightgreen;
+    }
+
+.image {
+  height: 50px;
+  width: 100%;
+}
+
+.split {
+  height: 100%;
+  position: fixed;
+  width: 50%;
+}
+
+.left {
+  left: 0;
+  background-color: white;
+}
+
+.right {
+  right: 0;
+  background-color: white;
+}
+
+.car-text {
+  font-size: 20px;
+  text-align: left;
+  margin-left: 100px;
+}
+
+.car-image {
+  width: 20%;
+  height: 20%;
+  margin-right: 5%;
+}
+
+.car-position {
+  margin-left: 5%;
+  margin-top: 10%;
+}
+
+.paragraph-right {
+  display: inline;
+}
+
+
+
+
+
+.search-text {
+  text-align: left;
+  margin-left: 60px;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.city {
+  text-align: left;
+  margin-left: 30px;
+  margin-top: -20px;
+  font-size: 20px;
+}
+
+[type="date"] {
+  background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
+}
+
+  [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+/* custom styles */
+body {
+  padding: 4em;
+  background: #e5e5e5;
+  font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
+label {
+  display: block;
+}
+
+input {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+  width: 190px;
+}
+
+.pickup-period {
+  text-align: left;
+  margin-left: 30px;
+  margin-top: -5px;
+  font-size: 20px;
+}
+
+.return-period {
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 0px;
+  font-size: 20px;
+}
+
+input {
+  max-width: 70%;
+  display: inline-block;
+}

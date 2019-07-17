@@ -16,6 +16,4 @@ export class CarService {
     return this.http.get<Car[]>(this.profileUrl);
   }
 
-  
-
 }

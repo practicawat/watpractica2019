@@ -1,0 +1,73 @@
+<nav class="navbar">
+  <ul class="list-style">
+    <li><img src="https://www.autorentacar.net/images/content/logo.png" alt="logo here" class="image" /></li>
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/car-list">View all cars</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+  </ul>
+
+  <div class="split left">
+
+    <p class="search-text">Search:</p>
+
+    <p class="city">
+      City:
+      <select>
+        <option *ngFor="let index of city">{{ index }}</option>
+      </select>
+    </p>
+
+    <p class="pickup-period">
+      <label for="dateofbirth">Pickup period</label>
+      <input type="date" name="dateofbirth" id="dateofbirth">
+    </p>
+
+    <p class="return-period">
+      <label for="dateofbirth">Return period</label>
+      <input type="date" name="dateofbirth" id="dateofbirth">
+    </p>
+
+    <form>
+      <input type="checkbox">Age over 21 years!<br>
+    </form>
+
+    <button type="button">Search</button>
+
+  </div>
+
+
+
+  <div class="split right">
+    <div class="car-position">
+      <img align="left" class="car-image" src="https://cdn2.carbuyer.co.uk/sites/carbuyer_d7/files/2017/12/lamborghini-urus-8_1.jpg" alt="CarImage" />
+      <div class="car-text">
+        <p class="paragraph-right">
+          Registration number:<input type="text" /><br />
+          Car brand-type:<input type="text" /><br />
+          Number of doors:<input type="text" />
+        </p>
+      </div>
+    </div>
+    <div class="car-position">
+      <img align="left" class="car-image" src="https://cdn2.carbuyer.co.uk/sites/carbuyer_d7/files/2017/12/lamborghini-urus-8_1.jpg" alt="CarImage" />
+      <div class="car-text">
+        <p class="paragraph-right">
+          Registration number:<input type="text" /><br />
+          Car brand-type:<input type="text" /><br />
+          Number of doors:<input type="text" />
+        </p>
+      </div>
+    </div>
+    <div class="car-position">
+      <img align="left" class="car-image" src="https://cdn2.carbuyer.co.uk/sites/carbuyer_d7/files/2017/12/lamborghini-urus-8_1.jpg" alt="CarImage" />
+      <div class="car-text">
+        <p class="paragraph-right">
+          Registration number:<input type="text" /><br />
+          Car brand-type:<input type="text" /><br />
+          Number of doors:<input type="text" />
+        </p>
+      </div>
+    </div>
+  </div>
+
+</nav>
