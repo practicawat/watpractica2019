@@ -4,6 +4,7 @@ namespace CarRentalApp.Models
 {
     public class Car
     {
+
             [Key]
             public  string LicensePlate { get; set; }
             public  string Brand { get; set; }
@@ -23,7 +24,5 @@ namespace CarRentalApp.Models
                 this.HasAutomaticGearbox = hasAutomaticGearbox;
                 this.PricePerDay = pricePerDay;
             }
-
-        
     }
 }

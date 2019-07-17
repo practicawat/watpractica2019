@@ -1,4 +1,3 @@
-
 export interface Car{
   licensePlate: string,
   brand: string,
