@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Car = /** @class */ (function () {
-    function Car(id, Name, CompanyName, Designation, Price) {
-        this.id = id;
-        this.Name = Name;
-        this.CompanyName = CompanyName;
-        this.Designation = Designation;
-        this.Price = Price;
+    function Car(Brand, Model, Doorsnb, RegistrationNb, PlacesNb, GearBox, PricePerDay) {
+        this.Brand = Brand;
+        this.Model = Model;
+        this.Doorsnb = Doorsnb;
+        this.RegistrationNb = RegistrationNb;
+        this.PlacesNb = PlacesNb;
+        this.GearBox = GearBox;
+        this.PricePerDay = PricePerDay;
     }
     return Car;
 }());

@@ -15,6 +15,10 @@ export class CarService {
   getAllCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.profileUrl);
   }
+  addNewCar(newCar: Car) {
+    return this.http.post<Car>(this.profileUrl, newCar);
+  }
+
 
   
 
