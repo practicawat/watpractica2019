@@ -4,11 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CarComponentComponent } from './car-component/car-component.component';
+import { ConfirmationDeleteComponent } from './confirmation-delete/confirmation-delete.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarComponentComponent
+    CarComponentComponent,
+    ConfirmationDeleteComponent
   ],
   imports: [
     BrowserModule,

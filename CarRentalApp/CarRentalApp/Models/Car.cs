@@ -1,4 +1,5 @@
-﻿namespace CarRentalApp.Models
+﻿using System.Web;
+namespace CarRentalApp.Models
 {
     public class Car
     {
