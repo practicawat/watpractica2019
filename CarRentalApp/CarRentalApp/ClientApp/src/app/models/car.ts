@@ -1,12 +1,9 @@
-export class Car {
-  constructor(
-    public id: number,
-    public Name: string,
-    public CompanyName: string,
-    public Designation: string,
-    public Price: number
-  ) { }
-
+export interface ICar{
+  licensePlate: string,
+  brand: string,
+  model: string,
+  nrOfDoors: number,
+  nrOfSeats: number,
+  hasAutomaticGearbox: boolean,
+  pricePerDay: number,
 }
-
-

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CarRentalApp.Context;
 using CarRentalApp.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace CarRentalApp.Controllers
 {
@@ -22,6 +23,7 @@ namespace CarRentalApp.Controllers
         }
 
         // GET: api/Cars
+        [EnableCors("MyPolicy")]
         [HttpGet]
         public IEnumerable<Car> GetCars()
         {
@@ -108,7 +110,7 @@ namespace CarRentalApp.Controllers
 
             var car = await _context.Cars.FindAsync(licensePlate);
             if (car == null)
-            {
+            {   
                 return NotFound();
             }
 
