@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarService } from 'src/app/services/car.service';
+import { CarService } from 'src/app/services/cars.service';
 
 @Component({
   selector: 'app-car-table',
@@ -12,7 +12,7 @@ export class CarTableComponent implements OnInit {
   constructor(private _carService: CarService) { }
 
   ngOnInit() {
-    this._carService.getCars()
+    this._carService.getAllCars()
       .subscribe(data=> this.cars = data);
 
   }
