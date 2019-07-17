@@ -20,19 +20,18 @@ namespace CarRentalApp.Migrations
 
             modelBuilder.Entity("CarRentalApp.Models.Car", b =>
                 {
-                    b.Property<int>("CarId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("LicensePlate")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("CompanyName");
+                    b.Property<string>("Brand");
 
-                    b.Property<string>("Designation");
+                    b.Property<bool>("HasAutomaticGearbox");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Model");
 
-                    b.Property<float>("Price");
+                    b.Property<short>("NrOfDoors");
 
-                    b.HasKey("CarId");
+                    b.Property<short>("NrOfSeats");
 
                     b.ToTable("Cars");
                 });
@@ -50,6 +49,7 @@ namespace CarRentalApp.Migrations
                     b.HasKey("IDCity");
 
                     b.ToTable("Cities");
+
                 });
 #pragma warning restore 612, 618
         }

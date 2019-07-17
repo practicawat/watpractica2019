@@ -24,6 +24,13 @@ namespace CarRentalApp
             services.AddMvc();
             services.AddDbContext<CarDbContext>(item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

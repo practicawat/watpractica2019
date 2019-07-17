@@ -16,7 +16,7 @@ namespace CarRentalApp.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-          
+
         }
     }
 }
