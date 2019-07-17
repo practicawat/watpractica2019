@@ -8,15 +8,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarRentalApp.Migrations
 {
-    [DbContext(typeof(CarDbContext))]
+    [DbContext(typeof(CarRentalDbContext))]
     partial class CarDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
-
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -35,6 +34,10 @@ namespace CarRentalApp.Migrations
 
                     b.Property<short>("NrOfSeats");
 
+                    b.Property<float>("PricePerDay");
+
+                    b.HasKey("LicensePlate");
+
                     b.ToTable("Cars");
                 });
 
@@ -51,10 +54,6 @@ namespace CarRentalApp.Migrations
                     b.HasKey("IDCity");
 
                     b.ToTable("Cities");
-
-                });
-
-                    b.ToTable("Cars");
                 });
 
             modelBuilder.Entity("CarRentalApp.Models.InfoUser", b =>
@@ -74,6 +73,8 @@ namespace CarRentalApp.Migrations
                     b.HasKey("IdUser");
 
                     b.ToTable("InfoUsers");
+                });
+
             modelBuilder.Entity("CarRentalApp.Models.Rentals", b =>
                 {
                     b.Property<int>("RentalsId")

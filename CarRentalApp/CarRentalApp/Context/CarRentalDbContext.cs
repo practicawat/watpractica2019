@@ -3,9 +3,9 @@ using CarRentalApp.Models;
 
 namespace CarRentalApp.Context
 {
-    public class CarDbContext:DbContext
+    public class CarRentalDbContext:DbContext
     {
-        public CarDbContext(DbContextOptions options):base(options)
+        public CarRentalDbContext(DbContextOptions options):base(options)
         {
 
         }
@@ -18,9 +18,5 @@ namespace CarRentalApp.Context
             //empty
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-
-        }
     }
 }

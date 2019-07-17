@@ -15,9 +15,9 @@ namespace CarRentalApp.Controllers
     [ApiController]
     public class InfoUserController : ControllerBase
     {
-        private readonly CarDbContext _context;
+        private readonly CarRentalDbContext _context;
 
-        public InfoUserController(CarDbContext context)
+        public InfoUserController(CarRentalDbContext context)
         {
             _context = context;
         }
