@@ -9,13 +9,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRentalApp.Migrations
 {
     [DbContext(typeof(CarRentalDbContext))]
-    partial class CarDbContextModelSnapshot : ModelSnapshot
+    partial class CarRentalDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -53,7 +53,6 @@ namespace CarRentalApp.Migrations
 
                     b.HasKey("IDCity");
 
-                    b.Property<int>("Price");
                     b.ToTable("Cities");
                 });
 
@@ -96,9 +95,7 @@ namespace CarRentalApp.Migrations
 
                     b.HasKey("RentalsId");
 
-                        new { CarId = 2, CompanyName = "ABC Inc", Designation = "Manager", Name = "Chris", Price = 50000 },
-                        new { CarId = 3, CompanyName = "XYZ Inc", Designation = "Consultant", Name = "Mukesh", Price = 20000 }
-                    );
+                    b.ToTable("Rentals");
                 });
 #pragma warning restore 612, 618
         }

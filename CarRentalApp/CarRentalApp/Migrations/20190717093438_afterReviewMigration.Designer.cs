@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRentalApp.Migrations
 {
     [DbContext(typeof(CarRentalDbContext))]
-    [Migration("20190717073400_afterReviewMigration")]
+    [Migration("20190717093438_afterReviewMigration")]
     partial class afterReviewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
