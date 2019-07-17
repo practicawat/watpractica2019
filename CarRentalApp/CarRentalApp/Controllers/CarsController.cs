@@ -84,7 +84,7 @@ namespace CarRentalApp.Controllers
             return NoContent();
         }
 
-        // POST: api/ars
+        // POST: api/Cars
         [HttpPost]
         public async Task<IActionResult> PostCar([FromBody] Car car)
         {

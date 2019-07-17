@@ -4,54 +4,46 @@ using CarRentalApp.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarRentalApp.Migrations
 {
     [DbContext(typeof(CarDbContext))]
-    partial class CarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190715104901_initialRental")]
+    partial class initialRental
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
-
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("CarRentalApp.Models.Car", b =>
                 {
-                    b.Property<string>("LicensePlate")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Brand");
-
-                    b.Property<bool>("HasAutomaticGearbox");
-
-                    b.Property<string>("Model");
-
-                    b.Property<short>("NrOfDoors");
-
-                    b.Property<short>("NrOfSeats");
-
-                    b.ToTable("Cars");
-                });
-
-            modelBuilder.Entity("CarRentalApp.Models.City", b =>
-                {
-                    b.Property<int>("IDCity")
+                    b.Property<int>("CarId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CityName");
+                    b.Property<string>("CompanyName");
 
-                    b.Property<string>("CountyName");
+                    b.Property<string>("Designation");
 
-                    b.HasKey("IDCity");
+                    b.Property<string>("Name");
 
-                    b.ToTable("Cities");
+                    b.Property<float>("Price");
 
+                    b.HasKey("CarId");
+
+                    b.ToTable("Cars");
+
+                    b.HasData(
+                        new { CarId = 1, CompanyName = "XYZ Inc", Designation = "Developer", Name = "John", Price = 30000f },
+                        new { CarId = 2, CompanyName = "ABC Inc", Designation = "Manager", Name = "Chris", Price = 50000f },
+                        new { CarId = 3, CompanyName = "XYZ Inc", Designation = "Consultant", Name = "Mukesh", Price = 20000f }
+                    );
                 });
 
             modelBuilder.Entity("CarRentalApp.Models.Rentals", b =>
