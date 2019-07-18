@@ -18,9 +18,9 @@ import { ConfirmationDeleteComponent } from './confirmation-delete/confirmation-
     AppComponent,
     CarComponentComponent,
     AddNewCarComponent,
-    EditCarComponent
+    EditCarComponent,
     CarListUserComponent,
-    CarTableComponent
+    CarTableComponent,
     CarComponentComponent,
     ConfirmationDeleteComponent
   ],

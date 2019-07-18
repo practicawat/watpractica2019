@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CarService } from 'src/app/services/cars.service';
+
 
 @Component({
   selector: 'confirmation-delete',
@@ -6,10 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./confirmation-delete.component.css']
 })
 export class ConfirmationDeleteComponent implements OnInit {
+  public cars = [];
 
-  constructor() { }
+  constructor(private _carService: CarService) {
+  }
 
   ngOnInit() {
+    this._carService.getAllCars()
+      .subscribe(data => this.cars = data);
+
+  }
+
+  testData = (event) => {
+    console.log(this.cars);
+  }
+
+  clickAction(event) {
+    alert("Butonul a fost apasat!");
+    this._carService.deleteCar(this.cars[0])
+      .subscribe();
+
+    
+  }
+
+  clickActionDeleteNo(event) {
+    alert("A fost apasat nu!");
   }
 
 }

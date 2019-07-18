@@ -6,7 +6,7 @@
   text-align: right;
   font-size: 20px;
 }
-
+/*
 .b {
   float: right;
   margin: auto;
@@ -16,7 +16,7 @@
 }
 
 .c {
-  background-color: white; /* Green */
+  background-color: white;  Green 
   border: 1px solid black;
   color: black;
   padding: 10px 75px;
@@ -27,6 +27,14 @@
 }
 
 .d {
-  color: blue;
-  font-family: "Times New Roman", Times, serif;
+ padding-left: 20px 20px;
+  padding-right: 20px 20px;
+  border: 1px solid black;
+}*/
+
+img{
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
 }
