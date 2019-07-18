@@ -16,7 +16,7 @@ import { CarTableComponent } from './components/car-table/car-table.component';
     AppComponent,
     CarComponentComponent,
     AddNewCarComponent,
-    EditCarComponent
+    EditCarComponent,
     CarListUserComponent,
     CarTableComponent
   ],
