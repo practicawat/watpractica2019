@@ -7,6 +7,7 @@ import { Config } from 'protractor';
 
 @Injectable({ providedIn: 'root' })
 export class CarService {
+
   private readonly profileUrl: string = "api/Cars";
   private readonly profileUrlRandom: string = "api/Cars/GetRandomCars";
 
@@ -17,6 +18,7 @@ export class CarService {
   getAllCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.profileUrl);
   }
+
 
   addNewCar(newCar: Car): Observable<Car>{
     return this.http.post<Car>(this.profileUrl, newCar);
