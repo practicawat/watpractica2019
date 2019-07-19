@@ -14,7 +14,6 @@ export class CarTableComponent implements OnInit {
   ngOnInit() {
     this._carService.getAllCars()
       .subscribe(data=> this.cars = data);
-
   }
 
 

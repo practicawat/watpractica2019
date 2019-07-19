@@ -9,6 +9,7 @@ import { EditCarComponent } from './edit-car/edit-car.component';
 
 import { CarListUserComponent } from './car-list-user/car-list-user.component';
 import { CarTableComponent } from './components/car-table/car-table.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
@@ -16,9 +17,10 @@ import { CarTableComponent } from './components/car-table/car-table.component';
     AppComponent,
     CarComponentComponent,
     AddNewCarComponent,
-    EditCarComponent
+    EditCarComponent,
     CarListUserComponent,
-    CarTableComponent
+    CarTableComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

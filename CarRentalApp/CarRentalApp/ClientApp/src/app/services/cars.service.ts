@@ -7,6 +7,7 @@ import { Car } from '../models/car';
 @Injectable({ providedIn: 'root' })
 export class CarService {
   private readonly profileUrl: string = "api/Cars";
+  private readonly profileUrlRandom: string = "api/Cars/GetRandomCars";
 
   constructor(protected http: HttpClient) { }
 
@@ -15,11 +16,13 @@ export class CarService {
   getAllCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.profileUrl);
   }
-  addNewCar(newCar: Car) {
-    return this.http.post<Car>(this.profileUrl, newCar);
+
+  getRandomCars(): Observable<Car[]> {
+    return this.http.get<Car[]>(this.profileUrlRandom);
   }
 
-
-  
+  addNewCar(newCar: Car) {
+    return this.http.post<Car>(this.profileUrl, newCar);
+  } 
 
 }
