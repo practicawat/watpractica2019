@@ -22,7 +22,9 @@ export class PageState{
 })
 export class CarTableComponent implements OnInit {
   public cars = [];
+  public showCars = [];
   public pageState :PageState;
+  public currentPage : number;
   public leftClassManager = {}
   public middleClassManager = {}
   public rightClassManager = {}
@@ -39,8 +41,11 @@ export class CarTableComponent implements OnInit {
 
   ngOnInit() {
     this._carService.getAllCars()
-      .subscribe(data=> this.cars = data);
-
+      .subscribe(data=>{ 
+        this.cars = data
+        this.showCars = this.cars.slice(0,3)
+      })
+      
   }
 
 
@@ -72,23 +77,26 @@ export class CarTableComponent implements OnInit {
   changePage = (event) =>{
     var target = event.target || event.srcElement || event.currentTarget
 
-    console.log(target.attributes.id.value)
+    console.log(target.attributes)
     if(target.attributes.id.value ==="middle"){
       this.pageState.isFirstButtonSelected = false;
       this.pageState.isMiddleButtonSelected = true;
       this.pageState.isLeftButtonSelected = false;
+      this.showCars = this.cars.slice(3,6);
       this.initiatePageManagers()
     }
     if(target.attributes.id.value ==="first"){
       this.pageState.isFirstButtonSelected = true;
       this.pageState.isMiddleButtonSelected = false;
       this.pageState.isLeftButtonSelected = false;
+      this.showCars = this.cars.slice(0,3);
       this.initiatePageManagers()
     }
     if(target.attributes.id.value ==="right"){
       this.pageState.isFirstButtonSelected = false;
       this.pageState.isMiddleButtonSelected = false;
       this.pageState.isLeftButtonSelected = true;
+      this.showCars = this.cars.slice(6,9);
       this.initiatePageManagers()
     }
   }
