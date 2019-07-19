@@ -31,11 +31,8 @@ constructor(private _carService: CarService) { }
 
 
   clickAction(event) {
-   let newCar: someCar;
-    //newCar.brand = brand;
-    //newCar.Model;
-   
 
+   let newCar: someCar;
     alert("You just added a new car!");
     var brand = ((document.getElementById("brand") as HTMLInputElement).value);
     var model = ((document.getElementById("brand") as HTMLInputElement).value);
