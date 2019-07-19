@@ -17,6 +17,10 @@ export class CarService {
     return this.http.get<Car[]>(this.profileUrl);
   }
 
+  addNewCar(newCar: Car): Observable<Car>{
+    return this.http.post<Car>(this.profileUrl, newCar);
+  }
+
   getRandomCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.profileUrlRandom);
   }

@@ -1,17 +1,17 @@
-.a{
+.a {
   float: left;
-  margin: auto;
   width: 45%;
-  line-height: 2;
-  text-align:right;
+  line-height: 1.8;
+  text-align: right;
   font-size: 20px;
+  font-family: 'Lucida Fax', Times, serif;
 }
 .b {
   float: right;
-  margin: auto;
   width: 50%;
-  line-height: 2.7;
+  line-height: 2.5;
   font-size: 15px;
+  margin-bottom: 10px;
 }
 
 .c {
@@ -27,10 +27,25 @@
 }
 
 .d {
-  color: blue;
-  font-family: "Times New Roman", Times, serif;
+  color: #616263;
+  font-family: 'Lucida Fax', Times, serif;
   
 }
 .c:hover, .c:active{
   background-color:#808080;
 }
+.f{
+  background-color: #dde4f6;
+}
+.g{
+  margin-bottom:10px;
+}
+
+button{
+  padding: 10px 80px;
+}
+.input-group{
+  width:300px;
+}
+
+
