@@ -33,7 +33,6 @@ constructor(private _carService: CarService) { }
   clickAction(event) {
     let newCar: Car;
     let carservice: CarService;
-
     newCar.brand = "brand";
     newCar.model;
 

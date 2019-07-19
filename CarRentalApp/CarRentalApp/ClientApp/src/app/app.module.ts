@@ -10,7 +10,9 @@ import { EditCarComponent } from './edit-car/edit-car.component';
 
 import { CarListUserComponent } from './car-list-user/car-list-user.component';
 import { CarTableComponent } from './components/car-table/car-table.component';
+import { ConfirmationDeleteComponent } from './confirmation-delete/confirmation-delete.component';
 import { HomePageComponent } from './home-page/home-page.component';
+
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     EditCarComponent,
     CarListUserComponent,
     CarTableComponent,
+    CarComponentComponent,
+    ConfirmationDeleteComponent
     HomePageComponent
   ],
   imports: [
