@@ -65,6 +65,7 @@ export class CarTableComponent implements OnInit {
       "btn-primary" : this.pageState.isLeftButtonSelected,
       "btn-default" : !this.pageState.isLeftButtonSelected,
     }
+
   }
 
 
