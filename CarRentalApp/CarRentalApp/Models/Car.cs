@@ -2,7 +2,7 @@
 
 namespace CarRentalApp.Models
 {
-    public class Car
+    public class Car 
     {
 
             [Key]
