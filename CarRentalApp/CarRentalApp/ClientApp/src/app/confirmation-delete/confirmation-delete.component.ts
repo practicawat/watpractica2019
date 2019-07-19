@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarService } from 'src/app/services/cars.service';
 
 
+
 @Component({
   selector: 'confirmation-delete',
   templateUrl: './confirmation-delete.component.html',
@@ -25,6 +26,9 @@ export class ConfirmationDeleteComponent implements OnInit {
 
   clickAction(event) {
     alert("Butonul a fost apasat!");
+    var licensePlate = ((HTMLDocument.arguments.carPlate as HTMLLabelElement).getAttributeNode);
+
+
     this._carService.deleteCar(this.cars[0])
       .subscribe();
 
