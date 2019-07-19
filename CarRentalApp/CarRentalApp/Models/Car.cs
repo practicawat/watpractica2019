@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarRentalApp.Models
 {
-    public class Car
+    public class Car 
     {
             [Key]
             public  string LicensePlate { get; set; }
