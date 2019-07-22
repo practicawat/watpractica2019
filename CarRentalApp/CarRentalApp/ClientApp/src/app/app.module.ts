@@ -14,6 +14,12 @@ import { ConfirmationDeleteComponent } from './confirmation-delete/confirmation-
 import { HomePageComponent } from './home-page/home-page.component';
 
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarComponent } from './calendar/calendar.component';
+
+
 
 @NgModule({
   declarations: [
@@ -26,12 +32,20 @@ import { HomePageComponent } from './home-page/home-page.component';
     CarTableComponent,
     CarComponentComponent,
     ConfirmationDeleteComponent,
-    HomePageComponent
+
+    HomePageComponent,
+    CalendarComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
