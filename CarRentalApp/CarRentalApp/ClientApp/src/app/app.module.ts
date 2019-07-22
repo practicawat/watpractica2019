@@ -19,13 +19,13 @@ import { HomePageComponent } from './home-page/home-page.component';
   declarations: [
     AppComponent,
     CarComponentComponent,
-    AddCarRentalPageComponent
+    AddCarRentalPageComponent,
     AddNewCarComponent,
     EditCarComponent,
     CarListUserComponent,
     CarTableComponent,
     CarComponentComponent,
-    ConfirmationDeleteComponent
+    ConfirmationDeleteComponent,
     HomePageComponent
   ],
   imports: [
