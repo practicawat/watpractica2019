@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CarRentalApp.Context;
 using CarRentalApp.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace CarRentalApp.Controllers
 {
@@ -22,6 +23,7 @@ namespace CarRentalApp.Controllers
         }
 
         // GET: api/City
+        [EnableCors("MyPolicy")]
         [HttpGet]
         public IEnumerable<City> GetCities()
         {
