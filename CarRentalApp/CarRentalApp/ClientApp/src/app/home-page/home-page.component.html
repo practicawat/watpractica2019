@@ -27,7 +27,7 @@
 </nav>
 
 
-<div class="split left">
+<div class="split left" ng-controller="geek" ng-app="app">
   <p class="text-left">Search</p>
   <p class="text-justify">
     City:
@@ -57,14 +57,19 @@
     </select>
   </p>
 
-  <div class="custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+  <p class="text-justify">
+    <br />
+    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" ng-model="check" onchange="document.getElementById('sendNewSms').disabled = !this.checked;">
     <label class="custom-control-label" for="defaultUnchecked">Age over 21 years!</label>
-  </div>
+    <input type="submit" value="Search" name="sendNewSms" class="inputButton" id="sendNewSms" disabled="disabled" />
+    <br />
 
-  <button type="button" class="btn btn-primary">Search</button>
-        
-  </div>
+  </p>
+</div>
+
+
+
+
 
   <div class="split right">
     <div class="table-responsive">
@@ -123,5 +128,17 @@
       </table>
     </div>
   </div>
+
+
+
+  <script>
+
+    var app = angular.module("app", []);
+    app.controller('geek', ['$scope', function ($scope) {
+      $scope.disableClick = function (isDisabled) {
+        $scope.isDisabled = !isDisabled;
+      }
+    }]);
+  </script>
 
 
