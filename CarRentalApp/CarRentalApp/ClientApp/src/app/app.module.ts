@@ -32,9 +32,10 @@ import { CalendarComponent } from './calendar/calendar.component';
     CarTableComponent,
     CarComponentComponent,
     ConfirmationDeleteComponent,
+
     HomePageComponent,
     CalendarComponent,
-   
+
   ],
   imports: [
     BrowserModule,
