@@ -24,10 +24,7 @@ export class CarService {
     return this.http.post<Car>(this.profileUrl, newCar);
   }
 
- 
-  //deleteCar(someCar: Car) {
-  //  return this.http.delete<Car>(this.profileUrl,someCar);
-  //}
+
 
   configUrl = 'ClientApp/tsconfig.json';
 
@@ -55,8 +52,5 @@ export class CarService {
     return this.http.get<Car[]>(this.profileUrlRandom);
   }
 
-  addNewCar(newCar: Car) {
-    return this.http.post<Car>(this.profileUrl, newCar);
-  } 
 
 }
