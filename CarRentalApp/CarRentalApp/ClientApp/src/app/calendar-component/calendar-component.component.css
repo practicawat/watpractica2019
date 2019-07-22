@@ -1,46 +1,5 @@
-.carSpecs {
-  width: 100%;
-  position: fixed;
-  top: 50px;
-}
-
-
-
-.userInformation {
-
-  float:left;
-  margin: auto;
-  margin-top: 400px;
-  margin-right: 100px;
-}
-
-.col-sm-4{
-  float: left;
-  width: 100%;
-  height: 100%;
-
-}
-.col-sm-5 {
-  float: right;
-  bottom: 375px;
-  width: 100%;
-  height: 100%;
-}
-
-.buttonpoz {
-  align-content: center;
- padding: 20px 0px 5px 50px;
-}
-
-
-.rentingPart {
-  width: 100%;
-  position: fixed;
-  top: 0px;
-}
-
 .calendar {
-  float: right;
+  float: left;
   margin: auto;
   margin-left: 150px;
 }

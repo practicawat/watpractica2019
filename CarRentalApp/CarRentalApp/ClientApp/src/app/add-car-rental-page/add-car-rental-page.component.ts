@@ -10,6 +10,7 @@ export class AddCarRentalPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
