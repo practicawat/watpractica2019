@@ -14,8 +14,8 @@ export class AddNewCarComponent implements OnInit {
   clickAction(event) {
     let newCar: Car;
     let carservice: CarService;
-    newCar.Brand = "brand";
-    newCar.Model;
+    newCar.brand = "brand";
+    newCar.model;
     carservice.addNewCar(newCar);
     alert("You just added a new car!");
   }

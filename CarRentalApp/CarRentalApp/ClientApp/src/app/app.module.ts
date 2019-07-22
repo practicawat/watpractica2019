@@ -9,6 +9,8 @@ import { EditCarComponent } from './edit-car/edit-car.component';
 
 import { CarListUserComponent } from './car-list-user/car-list-user.component';
 import { CarTableComponent } from './components/car-table/car-table.component';
+import { CalendarComponentComponent } from './calendar-component/calendar-component.component';
+import { AddCarRentalPageComponent } from './add-car-rental-page/add-car-rental-page.component';
 
 
 @NgModule({
@@ -16,9 +18,11 @@ import { CarTableComponent } from './components/car-table/car-table.component';
     AppComponent,
     CarComponentComponent,
     AddNewCarComponent,
-    EditCarComponent
+    EditCarComponent,
     CarListUserComponent,
-    CarTableComponent
+    CarTableComponent,
+    CalendarComponentComponent,
+    AddCarRentalPageComponent
   ],
   imports: [
     BrowserModule,
