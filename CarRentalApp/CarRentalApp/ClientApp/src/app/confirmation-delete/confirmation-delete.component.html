@@ -1,0 +1,39 @@
+
+<div style="text-align:center">
+  <h1 class="d"><br />Do you want to delete the car with the following information?<br /></h1>
+</div>
+
+
+<div class="a">
+  
+  Car brand:
+  <label id="carBrand" required name="carBrand">
+    {{cars[0].brand}}
+  </label>
+  <br />
+  <!--<input type="hidden" id="carBrand" required name="carBrand" /><br />-->
+  Car model:{{cars[0].model}}<br />
+  Registration number:
+  <label id="carPlate" required name="carPlate">
+    {{cars[0].licensePlate}}
+  </label>
+  <br />
+  Number of seats:{{cars[0].nrOfSeats}}<br />
+  Number of doors:{{cars[0].nrOfDoors}}<br />
+  <br />
+  <br />
+
+</div>
+<br />
+<img src="https://picsum.photos/id/111/130/130" />
+<img src="https://picsum.photos/id/111/130/130" />
+<br />
+<img src="https://picsum.photos/id/111/130/130" />
+<img src="https://picsum.photos/id/111/130/130" />
+
+<div class="b">
+
+  <button (click)="clickAction($event)" class="c" type="button">Delete record</button>
+  <button (click)="clickActionDeleteNo($event)" class="c" type="button">No</button>
+</div>
+

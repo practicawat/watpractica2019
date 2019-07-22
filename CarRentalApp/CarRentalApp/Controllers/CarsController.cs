@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CarRentalApp.Context;
 using CarRentalApp.Models;
 using Microsoft.AspNetCore.Cors;
+using System.Collections;
 
 namespace CarRentalApp.Controllers
 {
@@ -30,6 +31,40 @@ namespace CarRentalApp.Controllers
                 return _context.Cars.ToArray();
         }
 
+        [HttpGet("{GetRandomCars}")]
+        public IEnumerable<Car> GetRandomCars()
+        {
+            List<Car> randomList = new List<Car>();
+            Car[] availableCars = _context.Cars.ToArray();
+            int[] indexes = new int[3];
+
+            for (int index = 0; index < 3; ++index)
+            {
+                Random random = new Random();
+                int randIndex;
+
+                // verify if index already exists in index list (indexes)
+                bool duplicateIndex = true;
+                while (duplicateIndex == true)
+                {
+                    bool foundIndex = false;
+                    randIndex = random.Next(availableCars.Length);
+                    for (int ind = 0; ind < indexes.Length; ++ind)
+                        if (indexes[ind] == randIndex)
+                        {
+                            foundIndex = true;
+                        }
+                    if (foundIndex == false)
+                    {
+                        indexes[index] = randIndex;
+                        randomList.Add(availableCars[randIndex]);
+                        duplicateIndex = false;
+                    }
+                }
+            }
+            return randomList;
+        }
+       
         // GET: api/Cars/5
         [HttpGet("{licensePlate}")]
         public async Task<IActionResult> GetCar([FromRoute] string licensePlate)

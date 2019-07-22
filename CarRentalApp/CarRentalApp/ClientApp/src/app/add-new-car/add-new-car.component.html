@@ -1,48 +1,98 @@
 
 
-<div style="text-align:center">
-  <h1 class="d"><br />Add a new car in the system:<br /></h1>
+  <div class="f" style="text-align:center">
+    <h1 class="d"><br />Add a new car in the system:<br /><br /></h1>
+  </div>
+
+
+  <div class="a">
+    Car brand:<br />
+    Car model:<br />
+    License plate:<br />
+    Number of seats:<br />
+    Number of doors:<br />
+    Price per day:<br />
+    <br />
+
+    Pictures:<br />
+  </div>
+  <div class="b">
+    <form #carForm="ngForm">
+
+      <input class="form-control-sm" type="text" id="brand"
+             required
+             name="brand"> <br>
+
+      <input class="form-control-sm" type="text" id="model"
+             required
+             name="model"><br>
+
+      <input class="form-control-sm" type="text" id="licP"
+             required><br>
+
+      <input class="form-control-sm" type="text" name="seatnb" id="seatnb"
+             required><br>
+
+      <input class="form-control-sm" type="text" id="doornb"
+             required><br>
+
+      <input class="form-control-sm" type="text" id="price"
+             required><br>
+
+
+      <input type="checkbox" id="gearbox" name="gearbox" >Automatic gearbox<br>
+
+
+      <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile01"
+      aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+  </div>
 </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="inputGroupFile01"
+                 aria-describedby="inputGroupFileAddon01">
+          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="inputGroupFile01"
+                 aria-describedby="inputGroupFileAddon01">
+          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="inputGroupFile01"
+                 aria-describedby="inputGroupFileAddon01">
+          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+      </div>
+      
+
+    </form>
+    <div style="margin-top:20px">
+    <button name="add" (click)='clickAction($event)' class="btn btn-outline-secondary" type="button">Add car</button>
+      </div>
+
+  </div>
 
 
-<div class="a">
-  Car brand:<br />
-  Car model:<br />
-  Registration number:<br />
-  Number of seats:<br />
-  Number of doors:<br />
-  <br />
-  <br />
-  Pictures:<br />
-</div>
-<div class="b">
-  <form>
-
-    <input type="text" name="brand" id="brand"
-    ><br>
-
-    <input type="text" name="model" ><br>
-
-    <input type="text" name="regnb"><br>
-
-    <input type="text" name="seatnb"><br>
-
-    <input type="text" name="doornb"><br>
-
-    <input type="checkbox" name="air" value="">Air Conditioning<br>
-    <input type="checkbox" name="gearbox" value="">Automatic gearbox<br>
 
 
-    <input type="file" name="pic1" accept="image/*"><br>
-    <input type="file" name="pic2" accept="image/*"><br>
-    <input type="file" name="pic3" accept="image/*"><br>
-    <input type="file" name="pic4" accept="image/*"><br>
-
-
-
-  </form>
-  <button name="add" type="submit" (click)="clickAction($event)" (click)='clickAction($event)' class="c" type="button">Add car</button>
-  
-
-</div>
 
