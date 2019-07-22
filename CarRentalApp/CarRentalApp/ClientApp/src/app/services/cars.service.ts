@@ -55,8 +55,4 @@ export class CarService {
     return this.http.get<Car[]>(this.profileUrlRandom);
   }
 
-  addNewCar(newCar: Car) {
-    return this.http.post<Car>(this.profileUrl, newCar);
-  } 
-
 }
