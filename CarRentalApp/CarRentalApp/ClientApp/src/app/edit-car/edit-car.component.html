@@ -1,33 +1,88 @@
-<div style="text-align:center">
-  <h1 class="d"><br />Edit car information:<br /></h1>
+<div class="f" style="text-align:center">
+  <h1 class="d"><br />Edit a car in the system:<br /><br /></h1>
 </div>
 
 
 <div class="a">
+  <br>
   Car brand:<br />
   Car model:<br />
-  Registration number:<br />
+  License plate:<br />
   Number of seats:<br />
   Number of doors:<br />
+  Price per day:<br />
+
   <br />
-  <br />
+
   Pictures:<br />
 </div>
 <div class="b">
-  <form>
+  <form #carForm="ngForm">
+    <br>
 
-    <input type="text" name="brand"><br>
+    <input class="form-control-sm" type="text" value="{{showCars[0].brand}}" id="brand"> <br>
 
-    <input type="text" name="model"><br>
+    <input class="form-control-sm" type="text" value="{{showCars[0].model}}" id="model"><br>
 
-    <input type="text" name="regnb"><br>
+    <input class="form-control-sm" type="text" value="{{showCars[0].licensePlate}}" id="licP"><br>
 
-    <input type="text" name="seatsnb"><br>
+    <input class="form-control-sm" type="text" value="{{showCars[0].nrOfSeats}}" id="seatnb"><br>
 
-    <input type="text" name="doornb"><br>
+    <input class="form-control-sm" type="text" value="{{showCars[0].nrOfDoors}}" id="doornb"><br>
+
+    <input class="form-control-sm" type="text" value="{{showCars[0].pricePerDay}}" id="price"><br>
+
+
+    <input type="checkbox" id="gearbox" name="gearbox" value="{{showCars[0].hasAutomaticGearbox}}">Automatic gearbox<br>
+
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01"
+               aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01"
+               aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01"
+               aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01"
+               aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+    </div>
 
 
   </form>
-  <button class="c" type="button">Update car information</button>
+  <div style="margin-top:20px">
+    <button (click)='clickAction($event)' class="btn btn-outline-secondary" type="button">Update car information</button>
+  </div>
+
 </div>
+
 
