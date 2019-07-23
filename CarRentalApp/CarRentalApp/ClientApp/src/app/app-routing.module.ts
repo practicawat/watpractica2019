@@ -8,6 +8,7 @@ import { ConfirmationDeleteComponent } from './confirmation-delete/confirmation-
 import { EditCarComponent } from './edit-car/edit-car.component';
 
 const routes : Routes = [
+{path: '', redirectTo: 'home', pathMatch: 'full'},
 {path: 'home', component: HomePageComponent},
 {path: 'add-car-rental-page', component: AddCarRentalPageComponent},
 {path: 'add-new-car', component: AddNewCarComponent},
