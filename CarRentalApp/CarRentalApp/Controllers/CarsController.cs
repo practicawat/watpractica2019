@@ -23,9 +23,8 @@ namespace CarRentalApp.Controllers
             _context = context;
         }
 
-        //Get: api/Cars/returnCity/PickUpHour/ReturnHour/PickUpPeriod/toate-alea
 
-        // GET: api/Cars/idw
+        // GET: api/Cars/id
         [EnableCors("MyPolicy")]
         [HttpGet]
         public IEnumerable<Car> GetCars()

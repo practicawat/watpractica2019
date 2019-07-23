@@ -10,7 +10,7 @@ export class SearchedCar {
    public concatenateReturn: string,
    public isChecked: boolean,
   ) {
-
+    
   }
 
 }
