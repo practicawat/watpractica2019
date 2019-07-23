@@ -10,7 +10,7 @@ export class CarService {
 
   private readonly profileUrl: string = "api/Cars";
   private readonly profileUrlRandom: string = "api/Cars/GetRandomCars";
-  private readonly randomUrl: string = 'http://localhost:64738/api/cars/BV-asd-asd';
+  private readonly randomUrl: string = 'http://localhost:63280/api/cars/BV-asd-asd';
 
   constructor(protected http: HttpClient) { }
 
@@ -24,9 +24,9 @@ export class CarService {
   }
 
 
- // addNewCar(newCar: Car): Observable<Car>{
- //   return this.http.post<Car>(this.profileUrl, newCar);
- // }
+  addNewCar(newCar: Car): Observable<Car>{
+    return this.http.post<Car>(this.profileUrl, newCar);
+  }
 
 
   configUrl = 'ClientApp/tsconfig.json';
