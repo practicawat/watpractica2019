@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from 'src/app/services/cars.service';
 import { findLast } from '@angular/compiler/src/directive_resolver';
+import { ThrowStmt } from '@angular/compiler';
 export class PageState{
   constructor(
     public firstButton: number,
-    public middleButton: number,
-    public leftButton: number,
+    public secondButton: number,
+    public thirdButton: number,
+    public fourthButton: number,
+    public fifthButton: number,
 
     public isFirstButtonSelected :boolean,
-    public isMiddleButtonSelected :boolean,
-    public isLeftButtonSelected :boolean,
+    public isSecondButtonSelected :boolean,
+    public isThirdButtonSelected :boolean,
+    public isFourthButtonSelected :boolean,
+    public isFifthButtonSelected :boolean,
+
   ){}
 }
 
@@ -25,16 +31,18 @@ export class CarTableComponent implements OnInit {
   public showCars = [];
   public pageState :PageState;
   public currentPage : number;
-  public leftClassManager = {}
-  public middleClassManager = {}
-  public rightClassManager = {}
+  public firstClassManager = {}
+  public secondClassManager = {}
+  public thirdClassManager = {}
+  public fourthClassManager = {}
+  public fifthClassManager = {}
 
 
 
 
   constructor(private _carService: CarService) {
    this.pageState = new PageState(
-     1,2,3,true,false,false)
+     1,2,3,4,5,true,false,false,false,false)
     this.initiatePageManagers();
    }
 
@@ -50,20 +58,30 @@ export class CarTableComponent implements OnInit {
 
 
   initiatePageManagers = () =>{
-    this.leftClassManager = {
+    this.firstClassManager = {
       "btn" : true,
       "btn-primary" : this.pageState.isFirstButtonSelected,
       "btn-default" : !this.pageState.isFirstButtonSelected,
     }
-    this.middleClassManager = {
+    this.secondClassManager = {
       "btn" : true,
-      "btn-primary" : this.pageState.isMiddleButtonSelected,
-      "btn-default" : !this.pageState.isMiddleButtonSelected,
+      "btn-primary" : this.pageState.isSecondButtonSelected,
+      "btn-default" : !this.pageState.isSecondButtonSelected,
     }
-    this.rightClassManager = {
+    this.thirdClassManager = {
       "btn" : true,
-      "btn-primary" : this.pageState.isLeftButtonSelected,
-      "btn-default" : !this.pageState.isLeftButtonSelected,
+      "btn-primary" : this.pageState.isThirdButtonSelected,
+      "btn-default" : !this.pageState.isThirdButtonSelected,
+    }
+    this.fourthClassManager = {
+      "btn" : true,
+      "btn-primary" : this.pageState.isFourthButtonSelected,
+      "btn-default" : !this.pageState.isFourthButtonSelected,
+    }
+    this.fifthClassManager = {
+      "btn" : true,
+      "btn-primary" : this.pageState.isFifthButtonSelected,
+      "btn-default" : !this.pageState.isFifthButtonSelected,
     }
 
   }
@@ -75,31 +93,112 @@ export class CarTableComponent implements OnInit {
     console.log(this.pageState.firstButton);
   }
 
+  left = (event) =>{
+    if(this.pageState.firstButton>1)
+    {
+      this.pageState.firstButton--;
+      this.pageState.secondButton--;
+      this.pageState.thirdButton--;
+      this.pageState.fourthButton--;
+      this.pageState.fifthButton--;
+
+      if(this.pageState.isFifthButtonSelected === true)
+      {
+        this.pageState.isFirstButtonSelected = false;
+        this.pageState.isSecondButtonSelected = false;
+        this.pageState.isThirdButtonSelected = false;
+        this.pageState.isFourthButtonSelected = false;
+        this.pageState.isFifthButtonSelected = false;
+      }
+      else
+      {
+        this.pageState.isFourthButtonSelected=this.pageState.isFifthButtonSelected;
+        this.pageState.isThirdButtonSelected=this.pageState.isFourthButtonSelected;
+        this.pageState.isSecondButtonSelected=this.pageState.isThirdButtonSelected;
+        this.pageState.isFirstButtonSelected=this.pageState.isSecondButtonSelected;
+        this.pageState.isSecondButtonSelected = false;
+
+      }
+    }
+  }
+
+  right = (event) =>{
+    if(this.pageState.firstButton<10)
+    {
+      this.pageState.firstButton++;
+      this.pageState.secondButton++;
+      this.pageState.thirdButton++;
+      this.pageState.fourthButton++;
+      this.pageState.fifthButton++;
+
+      if(this.pageState.isFirstButtonSelected === true)
+      {
+        this.pageState.isFirstButtonSelected = false;
+        this.pageState.isSecondButtonSelected = false;
+        this.pageState.isThirdButtonSelected = false;
+        this.pageState.isFourthButtonSelected = false;
+        this.pageState.isFifthButtonSelected = false;
+      }
+      else
+      {
+        this.pageState.firstButton=this.pageState.secondButton;
+        this.pageState.secondButton=this.pageState.thirdButton;
+        this.pageState.thirdButton=this.pageState.fourthButton;
+        this.pageState.fourthButton=this.pageState.fifthButton;
+        this.pageState.isFifthButtonSelected = false;
+      }
+    }
+  }
+
+
   changePage = (event) =>{
     var target = event.target || event.srcElement || event.currentTarget
 
     console.log(target.attributes)
-    if(target.attributes.id.value ==="middle"){
-      this.pageState.isFirstButtonSelected = false;
-      this.pageState.isMiddleButtonSelected = true;
-      this.pageState.isLeftButtonSelected = false;
-      this.showCars = this.cars.slice(3,6);
-      this.initiatePageManagers()
-    }
     if(target.attributes.id.value ==="first"){
       this.pageState.isFirstButtonSelected = true;
-      this.pageState.isMiddleButtonSelected = false;
-      this.pageState.isLeftButtonSelected = false;
-      this.showCars = this.cars.slice(0,3);
+      this.pageState.isSecondButtonSelected = false;
+      this.pageState.isThirdButtonSelected = false;
+      this.pageState.isFourthButtonSelected = false;
+      this.pageState.isFifthButtonSelected = false;
+      this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
       this.initiatePageManagers()
     }
-    if(target.attributes.id.value ==="right"){
+    if(target.attributes.id.value ==="second"){
       this.pageState.isFirstButtonSelected = false;
-      this.pageState.isMiddleButtonSelected = false;
-      this.pageState.isLeftButtonSelected = true;
-      this.showCars = this.cars.slice(6,9);
+      this.pageState.isSecondButtonSelected = true;
+      this.pageState.isThirdButtonSelected = false;
+      this.pageState.isFourthButtonSelected = false;
+      this.pageState.isFifthButtonSelected = false;
+      this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
       this.initiatePageManagers()
     }
+    if(target.attributes.id.value ==="third"){
+      this.pageState.isFirstButtonSelected = false;
+      this.pageState.isSecondButtonSelected = false;
+      this.pageState.isThirdButtonSelected = true;
+      this.pageState.isFourthButtonSelected = false;
+      this.pageState.isFifthButtonSelected = false;
+      this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
+      this.initiatePageManagers()
+    }
+    if(target.attributes.id.value ==="fourth"){
+      this.pageState.isFirstButtonSelected = false;
+      this.pageState.isSecondButtonSelected = false;
+      this.pageState.isThirdButtonSelected = false;
+      this.pageState.isFourthButtonSelected = true;
+      this.pageState.isFifthButtonSelected = false;
+      this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
+      this.initiatePageManagers()
+    }
+    if(target.attributes.id.value ==="fifth"){
+      this.pageState.isFirstButtonSelected = false;
+      this.pageState.isSecondButtonSelected = false;
+      this.pageState.isThirdButtonSelected = false;
+      this.pageState.isFourthButtonSelected = false;
+      this.pageState.isFifthButtonSelected = true;
+      this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
+      this.initiatePageManagers()
   }
 
-}
+}}
