@@ -20,20 +20,18 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from './calendar/calendar.component';
 
 
+import {AppRoutingModule, routingComponents} from './app-routing.module';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CarComponentComponent,
-    AddCarRentalPageComponent,
-    AddNewCarComponent,
-    EditCarComponent,
-    CarListUserComponent,
     CarTableComponent,
-    CarComponentComponent,
     ConfirmationDeleteComponent,
+    routingComponents,
 
-    HomePageComponent,
     CalendarComponent,
 
   ],
@@ -45,7 +43,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    })
+    }),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
