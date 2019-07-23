@@ -1,1 +1,1 @@
-{"version":3,"file":"car.js","sourceRoot":"","sources":["car.ts"],"names":[],"mappings":";;AAAA;IACE,aACS,EAAU,EACV,IAAY,EACZ,WAAmB,EACnB,WAAmB,EACnB,KAAa;QAJb,OAAE,GAAF,EAAE,CAAQ;QACV,SAAI,GAAJ,IAAI,CAAQ;QACZ,gBAAW,GAAX,WAAW,CAAQ;QACnB,gBAAW,GAAX,WAAW,CAAQ;QACnB,UAAK,GAAL,KAAK,CAAQ;IAClB,CAAC;IAEP,UAAC;AAAD,CAAC,AATD,IASC;AATY,kBAAG"}
+{"version":3,"file":"car.js","sourceRoot":"","sources":["car.ts"],"names":[],"mappings":""}

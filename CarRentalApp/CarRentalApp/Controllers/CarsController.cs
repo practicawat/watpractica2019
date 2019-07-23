@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CarRentalApp.Context;
 using CarRentalApp.Models;
+using Microsoft.AspNetCore.Cors;
+using System.Collections;
 
 namespace CarRentalApp.Controllers
 {
@@ -14,30 +16,65 @@ namespace CarRentalApp.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private readonly CarDbContext _context;
+        private readonly CarRentalDbContext _context;
 
-        public CarsController(CarDbContext context)
+        public CarsController(CarRentalDbContext context)
         {
             _context = context;
         }
 
         // GET: api/Cars
+        [EnableCors("MyPolicy")]
         [HttpGet]
         public IEnumerable<Car> GetCars()
         {
-            return _context.Cars.ToArray();
+                return _context.Cars.ToArray();
         }
 
+        [HttpGet("{GetRandomCars}")]
+        public IEnumerable<Car> GetRandomCars()
+        {
+            List<Car> randomList = new List<Car>();
+            Car[] availableCars = _context.Cars.ToArray();
+            int[] indexes = new int[3];
+
+            for (int index = 0; index < 3; ++index)
+            {
+                Random random = new Random();
+                int randIndex;
+
+                // verify if index already exists in index list (indexes)
+                bool duplicateIndex = true;
+                while (duplicateIndex == true)
+                {
+                    bool foundIndex = false;
+                    randIndex = random.Next(availableCars.Length);
+                    for (int ind = 0; ind < indexes.Length; ++ind)
+                        if (indexes[ind] == randIndex)
+                        {
+                            foundIndex = true;
+                        }
+                    if (foundIndex == false)
+                    {
+                        indexes[index] = randIndex;
+                        randomList.Add(availableCars[randIndex]);
+                        duplicateIndex = false;
+                    }
+                }
+            }
+            return randomList;
+        }
+       
         // GET: api/Cars/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetEmployee([FromRoute] int id)
+        [HttpGet("{licensePlate}")]
+        public async Task<IActionResult> GetCar([FromRoute] string licensePlate)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var car = await _context.Cars.FindAsync(id);
+            var car = await _context.Cars.FindAsync(licensePlate);
 
             if (car == null)
             {
@@ -48,15 +85,15 @@ namespace CarRentalApp.Controllers
         }
 
         // PUT: api/Cars/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployee([FromRoute] int id, [FromBody] Car car)
+        [HttpPut("{licensePlate}")]
+        public async Task<IActionResult> PutCar([FromRoute] string licensePlate, [FromBody] Car car)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != car.CarId)
+            if (licensePlate != car.LicensePlate)
             {
                 return BadRequest();
             }
@@ -69,7 +106,7 @@ namespace CarRentalApp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CarExists(id))
+                if (!CarExists(licensePlate))
                 {
                     return NotFound();
                 }
@@ -82,9 +119,9 @@ namespace CarRentalApp.Controllers
             return NoContent();
         }
 
-        // POST: api/ars
+        // POST: api/Cars
         [HttpPost]
-        public async Task<IActionResult> PostEmployee([FromBody] Car car)
+        public async Task<IActionResult> PostCar([FromBody] Car car)
         {
             if (!ModelState.IsValid)
             {
@@ -94,21 +131,21 @@ namespace CarRentalApp.Controllers
             _context.Cars.Add(car);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEmployee", new { id = car.CarId }, car);
+            return CreatedAtAction("GetCar", new { licensePlate = car.LicensePlate }, car);
         }
 
         // DELETE: api/Cars/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCar([FromRoute] int id)
+        [HttpDelete("{licensePlate}")]
+        public async Task<IActionResult> DeleteCar([FromRoute] string licensePlate)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var car = await _context.Cars.FindAsync(id);
+            var car = await _context.Cars.FindAsync(licensePlate);
             if (car == null)
-            {
+            {   
                 return NotFound();
             }
 
@@ -118,9 +155,9 @@ namespace CarRentalApp.Controllers
             return Ok(car);
         }
 
-        private bool CarExists(int id)
+        private bool CarExists(string licensePlate)
         {
-            return _context.Cars.Any(e => e.CarId == id);
+            return _context.Cars.Any(e => e.LicensePlate == licensePlate);
         }
     }
 }

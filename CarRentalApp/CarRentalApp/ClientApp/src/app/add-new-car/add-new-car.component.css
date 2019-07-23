@@ -1,0 +1,51 @@
+.a {
+  float: left;
+  width: 45%;
+  line-height: 1.8;
+  text-align: right;
+  font-size: 20px;
+  font-family: 'Lucida Fax', Times, serif;
+}
+.b {
+  float: right;
+  width: 50%;
+  line-height: 2.5;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.c {
+  background-color: white; /* Green */
+  border: 1px solid black;
+
+  color: black;
+  padding: 5px 75px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.d {
+  color: #616263;
+  font-family: 'Lucida Fax', Times, serif;
+  
+}
+.c:hover, .c:active{
+  background-color:#808080;
+}
+.f{
+  background-color: #dde4f6;
+}
+.g{
+  margin-bottom:10px;
+}
+
+button{
+  padding: 10px 80px;
+}
+.input-group{
+  width:300px;
+}
+
+
