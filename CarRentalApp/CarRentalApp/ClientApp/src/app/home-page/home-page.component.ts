@@ -5,6 +5,7 @@ import { CityService } from '../services/cities.service'
 import { Car } from '../models/car';
 import { City } from '../models/city';
 import { SearchedCar } from '../models/searchedCar';
+import { SearchedCarService } from '../services/searched-car.service';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -12,22 +13,24 @@ import { SearchedCar } from '../models/searchedCar';
 })
 export class HomePageComponent implements OnInit {
   public cars = [];
-  public randomCars: Car[]=[];
+  public randomCars: Car[] = [];
   public city: City[] = [];
   public hours = [];
-  public searchedCar: SearchedCar; 
+  public searchedCar: SearchedCar;
 
-  constructor(private _carService: CarService, private _cityService: CityService) { }
+  public testCars = [];
+
+  constructor(private _carService: CarService, private _cityService: CityService, private _searchedCarService: SearchedCarService) { }
 
   ngOnInit() {
-    
+
     this._carService.getAllCars().subscribe(data => this.cars = data);
-    
+
     this._carService.getRandomCars().subscribe(data => this.randomCars = data);
 
     this._cityService.getAllCities().subscribe(data => this.city = data);
 
-    this.searchedCar = new SearchedCar(" ", " ", "  ", " ", " ", " ", " ", false);  
+    this.searchedCar = new SearchedCar(" ", " ", "  ", " ", " ", " ", " ", false);
 
     this.hours = ["0:00:00 AM", "1:00:00 AM", "2:00:00 AM", "3:00:00 AM", "4:00:00 AM", "5:00:00 AM", "6:00:00 AM", "7:00:00 AM", "8:00:00 AM", "9:00:00 AM", "10:00:00 AM", "11:00:00 AM", "12:00:00 AM", "1:00:00 PM", "2:00:00 PM", "3:00:00 PM", "4:00:00 PM", "5:00:00 PM ", "6:00:00 PM", "7:00:00 PM", "8:00:00 PM", "9:00:00 PM", "10:00:00 PM", "11:00:00 PM"];
   }
@@ -60,9 +63,28 @@ export class HomePageComponent implements OnInit {
     input.checked == true ? this.searchedCar.isChecked = true : this.searchedCar.isChecked = false;
   }
 
-  concatenateDateAndTime(event: any) {
+  searchClick(event: any) {
     this.searchedCar.concatenatePickup = this.searchedCar.selectedPickupPeriod + " " + this.searchedCar.selectedPickupHour;
     this.searchedCar.concatenateReturn = this.searchedCar.selectedReturnPeriod + " " + this.searchedCar.selectedReturnHour;
 
+    let pickupDate = new Date(this.searchedCar.concatenatePickup);
+    let returnDate = new Date(this.searchedCar.concatenateReturn);
+
+    if (pickupDate > returnDate)
+      alert("Pickup date must be before return date!");
+    else {
+      if (this.searchedCar.isChecked == false)
+        alert("You must be over 21!");
+      else {
+        this._searchedCarService.postSearchedInfo(this.searchedCar)
+          .subscribe(data => {
+            this.testCars = data
+            console.log(this.searchedCar)
+            console.log(this.testCars)
+
+        })
+        /*navigare catre pagina cu lista de masini corespunzatoare input-ului*/
+      }
+    }
   }
 }

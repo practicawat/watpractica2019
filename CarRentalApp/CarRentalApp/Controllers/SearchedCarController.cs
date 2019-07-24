@@ -55,10 +55,7 @@ namespace CarRentalApp.Controllers
                     availableCars.Add(allCars[indexCar]);
             }
 
-            await _context.SaveChangesAsync();
-
             return Ok(availableCars);
-            //return Ok(searchedCar.concatenatePickup);
         }
     }
 }

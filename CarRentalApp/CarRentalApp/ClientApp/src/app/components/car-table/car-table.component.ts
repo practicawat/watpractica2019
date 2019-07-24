@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from 'src/app/services/cars.service';
+import { SearchedCarService } from 'src/app/services/searched-car.service';
 import { findLast } from '@angular/compiler/src/directive_resolver';
+import { SearchedCar } from 'src/app/models/searchedCar';
 export class PageState{
   constructor(
     public firstButton: number,
@@ -28,11 +30,12 @@ export class CarTableComponent implements OnInit {
   public leftClassManager = {}
   public middleClassManager = {}
   public rightClassManager = {}
+  public searchedCars = [];
+  public searchedCar: SearchedCar;
 
 
 
-
-  constructor(private _carService: CarService) {
+  constructor(private _carService: CarService, private _searchedCarService: SearchedCarService) {
    this.pageState = new PageState(
      1,2,3,true,false,false)
     this.initiatePageManagers();
@@ -45,7 +48,11 @@ export class CarTableComponent implements OnInit {
         this.cars = data
         this.showCars = this.cars.slice(0,3)
       })
-      
+    /*this._searchedCarService.postSearchedInfo(this.searchedCar)
+      .subscribe(data => {
+        this.cars = data
+        this.showCars = this.cars.slice(0, 3)
+      })      */
   }
 
 
