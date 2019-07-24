@@ -11,22 +11,25 @@ export class CarService {
 
   private readonly profileUrl: string = "api/Cars";
   private readonly profileUrlRandom: string = "api/Cars/GetRandomCars";
+  private readonly randomUrl: string = 'http://localhost:64738/api/cars/BV-asd-asd';
 
   constructor(protected http: HttpClient) { }
+
+
+  updateCar(newCar: Car): Observable<{}> {
+    const urll = `${this.configUrl}/${newCar.licensePlate}`; // UPDATE api/Cars/
+    return this.http.put(this.randomUrl, newCar);
+  }
 
   getAllCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.profileUrl);
   }
 
 
-  addNewCar(newCar: Car): Observable<Car>{
-    return this.http.post<Car>(this.profileUrl, newCar);
+   addNewCar(newCar: Car): Observable<Car>{
+   return this.http.post<Car>(this.profileUrl, newCar);
   }
 
- 
-  //deleteCar(someCar: Car) {
-  //  return this.http.delete<Car>(this.profileUrl,someCar);
-  //}
 
   configUrl = 'ClientApp/tsconfig.json';
 
@@ -54,8 +57,5 @@ export class CarService {
     return this.http.get<Car[]>(this.profileUrlRandom);
   }
 
-  /*getSearchedInfo(): Observable<SearchedCar>{
-    return this.http.get<SearchedCar>(this.profileUrl);
-  }*/
 
 }

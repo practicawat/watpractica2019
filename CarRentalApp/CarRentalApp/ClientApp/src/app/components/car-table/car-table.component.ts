@@ -6,7 +6,7 @@ import { SearchedCar } from 'src/app/models/searchedCar';
 export class PageState{
   constructor(
     public firstButton: number,
-    public middleButton: number,
+    public middleButton: number, 
     public leftButton: number,
 
     public isFirstButtonSelected :boolean,
