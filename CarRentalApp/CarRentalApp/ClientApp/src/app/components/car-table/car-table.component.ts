@@ -4,7 +4,7 @@ import { findLast } from '@angular/compiler/src/directive_resolver';
 export class PageState{
   constructor(
     public firstButton: number,
-    public middleButton: number,
+    public middleButton: number, 
     public leftButton: number,
 
     public isFirstButtonSelected :boolean,
