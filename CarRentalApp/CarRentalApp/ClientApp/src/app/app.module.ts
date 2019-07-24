@@ -21,6 +21,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 
 
 import {AppRoutingModule, routingComponents} from './app-routing.module';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -33,6 +34,8 @@ import {AppRoutingModule, routingComponents} from './app-routing.module';
     routingComponents,
 
     CalendarComponent,
+
+    ContactComponent,
 
   ],
   imports: [

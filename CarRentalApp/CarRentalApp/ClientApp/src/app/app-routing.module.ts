@@ -6,6 +6,7 @@ import { AddNewCarComponent } from './add-new-car/add-new-car.component';
 import { CarListUserComponent } from './car-list-user/car-list-user.component';
 import { ConfirmationDeleteComponent } from './confirmation-delete/confirmation-delete.component';
 import { EditCarComponent } from './edit-car/edit-car.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes : Routes = [
 {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes : Routes = [
 {path: 'car-list-user', component: CarListUserComponent},
 {path: 'confirmation-delete', component: ConfirmationDeleteComponent},
 {path: 'edit-car', component: EditCarComponent},
+{path: 'contact', component: ContactComponent},
 ];
 
 @NgModule({
@@ -22,4 +24,4 @@ const routes : Routes = [
     exports: [RouterModule],
 })
 export class AppRoutingModule{}
-export const routingComponents = [HomePageComponent,AddCarRentalPageComponent,AddNewCarComponent,CarListUserComponent,ConfirmationDeleteComponent,EditCarComponent]
+export const routingComponents = [HomePageComponent,AddCarRentalPageComponent,AddNewCarComponent,CarListUserComponent,ConfirmationDeleteComponent,EditCarComponent, ContactComponent]
