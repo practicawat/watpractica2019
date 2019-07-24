@@ -28,6 +28,7 @@ import {AppRoutingModule, routingComponents} from './app-routing.module';
   declarations: [
     AppComponent,
     CarComponentComponent,
+
     CarTableComponent,
     ConfirmationDeleteComponent,
     routingComponents,

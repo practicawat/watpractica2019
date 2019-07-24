@@ -15,7 +15,9 @@ namespace CarRentalApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+
                 .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -27,6 +29,8 @@ namespace CarRentalApp.Migrations
                     b.Property<string>("Brand");
 
                     b.Property<bool>("HasAutomaticGearbox");
+
+                    b.Property<string>("ImgCars");
 
                     b.Property<string>("Model");
 

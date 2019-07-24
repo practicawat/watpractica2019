@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Car } from '../models/car';
 import { Config } from 'protractor';
+import { SearchedCar } from '../models/searchedCar';
 
 
 @Injectable({ providedIn: 'root' })
@@ -13,6 +14,7 @@ export class CarService {
   private readonly randomUrl: string = 'http://localhost:64738/api/cars/BV-asd-asd';
 
   constructor(protected http: HttpClient) { }
+
 
   updateCar(newCar: Car): Observable<{}> {
     const urll = `${this.configUrl}/${newCar.licensePlate}`; // UPDATE api/Cars/
@@ -54,7 +56,6 @@ export class CarService {
   getRandomCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.profileUrlRandom);
   }
-
 
 
 }

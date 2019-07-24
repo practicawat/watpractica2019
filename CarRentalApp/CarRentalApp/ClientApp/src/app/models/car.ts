@@ -6,5 +6,5 @@ export interface Car {
   nrOfSeats: number,
   hasAutomaticGearbox: boolean,
   pricePerDay: number,
-
+  imgCars: string,
 }
