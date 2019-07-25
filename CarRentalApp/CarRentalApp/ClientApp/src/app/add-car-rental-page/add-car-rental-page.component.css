@@ -2,11 +2,13 @@
   align-content: center;
   padding: 20px 0px 3px 100px;
 }
-
+.rentingPart {
+  background: #D3D3D3;
+}
 .carSpecs {
   width: 100%;
-  position: fixed;
   top: 50px;
+  background: #D3D3D3;
 }
 .userInformation {
   float: left;

@@ -2,6 +2,7 @@ import {
   Component,
   ChangeDetectionStrategy,
   ViewChild,
+  AfterViewInit,
   TemplateRef
 } from '@angular/core';
 import {
@@ -14,7 +15,7 @@ import {
   isSameMonth,
   addHours
 } from 'date-fns';
-import { Subject } from 'rxjs';
+import { Subject, from } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
   CalendarEvent,
@@ -22,7 +23,9 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView
 } from 'angular-calendar';
-
+import { Rentals } from '../models/rentals';
+import { debug } from 'util';
+import { CalendarEventActionsComponent } from 'angular-calendar/modules/common/calendar-event-actions.component';
 const colors: any = {
   red: {
     primary: '#ad2121',
@@ -44,7 +47,7 @@ const colors: any = {
   styleUrls: ['calendar.component.css'],
   templateUrl: 'calendar.component.html'
 })
-export class CalendarComponent {
+export class CalendarComponent implements AfterViewInit {
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -52,6 +55,8 @@ export class CalendarComponent {
   CalendarView = CalendarView;
 
   viewDate: Date = new Date();
+
+  selectedDate: Date = new Date();
 
   modalData: {
     action: string;
@@ -70,6 +75,7 @@ export class CalendarComponent {
       onClick: ({ event }: { event: CalendarEvent }): void => {
         this.events = this.events.filter(iEvent => iEvent !== event);
         this.handleEvent('Deleted', event);
+
       }
     }
   ];
@@ -77,9 +83,10 @@ export class CalendarComponent {
   refresh: Subject<any> = new Subject();
 
   events: CalendarEvent[] = [
+
     {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
+      start: subDays(startOfDay(new Date()), 0),
+      end: addDays(new Date(), 2),
       title: 'A 3 day event',
       color: colors.red,
       actions: this.actions,
@@ -90,38 +97,57 @@ export class CalendarComponent {
       },
       draggable: true
     },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    }
+
   ];
 
   activeDayIsOpen: boolean = true;
 
-  constructor(private modal: NgbModal) {}
+  constructor(private modal: NgbModal) { }
+
+  ngAfterViewInit() {
+
+   
+
+    // TODO: Refactorizare cod !!
+    let x = document.getElementsByClassName("cal-day-cell");
+    let i;
+    let date = new Date();
+
+   // let a = this.dayClicked({ date, events: CalendarEvent[this.events] });
+    for (i = 0; i < x.length; i++) {
+
+      if (i >= 9 && i <= 17) {
+        x[i].style.backgroundColor = "red";
+      }
+     
+        if (i >= 19 && i <= 23) {
+          x[i].style.backgroundColor = "green";
+        }
+      
+      console.log(x[i].childNodes[2].childNodes[1].innerHTML);
+    }
+  }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+
+
+    if (this.selectedDate.getDate() != date.getDate()) {
+      this.selectedDate = date;
+      events.push({
+        start: subDays(startOfDay(new Date()), 2),
+        end: addDays(new Date(), 3),
+        title: 'A 3 day event',
+        color: colors.blue,
+        actions: this.actions,
+        allDay: true,
+        resizable: {
+          beforeStart: true,
+          afterEnd: true
+        },
+        draggable: true
+      })
+      this.refresh;
+    }
     if (isSameMonth(date, this.viewDate)) {
       if (
         (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||

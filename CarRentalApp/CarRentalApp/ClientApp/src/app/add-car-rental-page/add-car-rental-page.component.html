@@ -30,12 +30,12 @@
       <tr>
 
         <td> <div class="col-sm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2aZzJlEZYzJRcoEPAKm9QlKL1g3AZDqBJZ21p61AWcYHvt16MuA" class="rounded-circle" /> </div></td>
+          
+        <td>{{cars[0].licensePlate}}</td>
 
-        <td></td>
+        <td>{{cars[0].brand}}</td>
 
-        <td></td>
-
-        <td></td>
+        <td>{{cars[0].nrOfDoors}}</td>
 
       </tr>
 
@@ -50,16 +50,16 @@
   <div class="userInformation">
     <h4>User Information: </h4>
     <label for="usr"> First Name: </label>
-    <input type="text" class="form-control" id="amount" />
+    <input type="text" class="form-control" id="userFirstName" />
     <label for="usr"> Last Name: </label>
-    <input type="text" class="form-control" id="amount" />
+    <input type="text" class="form-control" id="userLastName" />
     <label for="usr"> Email: </label>
-    <input type="text" class="form-control" id="amount" />
+    <input type="text" class="form-control" id="email" />
     <label for="usr"> Phone Number: </label>
-    <input type="text" class="form-control" id="amount" />
+    <input type="text" class="form-control" id="phoneNumber" />
     <div class="buttonpoz">
 
-      <button type="button" class="button">Send request</button>
+      <button type="button" (click)='clickAction1($event)' class="button">Send request</button>
 
     </div>
 

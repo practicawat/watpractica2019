@@ -31,16 +31,13 @@ constructor(private _carService: CarService) { }
 
 
   clickAction(event) {
-    let newCar: Car;
-    let carservice: CarService;
-    newCar.brand = "brand";
-    newCar.model;
+    let newCar: someCar;
 
-    carservice.addNewCar(newCar);
+
 
     alert("You just added a new car!");
     var brand = ((document.getElementById("brand") as HTMLInputElement).value);
-    var model = ((document.getElementById("brand") as HTMLInputElement).value);
+    var model = ((document.getElementById("model") as HTMLInputElement).value);
     var licensePlate = ((document.getElementById("licP") as HTMLInputElement).value);
     var nrOfSeats = Number(((document.getElementById("seatnb") as HTMLInputElement).value));
     var nrOfDoors = Number((document.getElementById("doornb") as HTMLInputElement).value);
