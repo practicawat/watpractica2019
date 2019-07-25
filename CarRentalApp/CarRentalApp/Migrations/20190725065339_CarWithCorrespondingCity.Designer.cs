@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRentalApp.Migrations
 {
     [DbContext(typeof(CarRentalDbContext))]
-    [Migration("20190724070049_migrationHomePageList")]
-    partial class migrationHomePageList
+    [Migration("20190725065339_CarWithCorrespondingCity")]
+    partial class CarWithCorrespondingCity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,8 @@ namespace CarRentalApp.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Brand");
+
+                    b.Property<string>("CurrentCity");
 
                     b.Property<bool>("HasAutomaticGearbox");
 
