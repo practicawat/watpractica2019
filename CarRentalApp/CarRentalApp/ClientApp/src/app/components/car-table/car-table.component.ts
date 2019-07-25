@@ -53,6 +53,7 @@ export class CarTableComponent implements OnInit {
         this.cars = data
         this.showCars = this.cars.slice(0,3)
       })
+      this.currentPage = 1;
       
   }
 
@@ -83,7 +84,6 @@ export class CarTableComponent implements OnInit {
       "btn-primary" : this.pageState.isFifthButtonSelected,
       "btn-default" : !this.pageState.isFifthButtonSelected,
     }
-
   }
 
 
@@ -104,11 +104,7 @@ export class CarTableComponent implements OnInit {
 
       if(this.pageState.isFifthButtonSelected === true)
       {
-        this.pageState.isFirstButtonSelected = false;
-        this.pageState.isSecondButtonSelected = false;
-        this.pageState.isThirdButtonSelected = false;
-        this.pageState.isFourthButtonSelected = false;
-        this.pageState.isFifthButtonSelected = false;
+        this.pageState.isFifthButtonSelected = !this.pageState.isFifthButtonSelected;
       }
       else
       {
@@ -123,7 +119,7 @@ export class CarTableComponent implements OnInit {
   }
 
   right = (event) =>{
-    if(this.pageState.firstButton<10)
+    if(this.pageState.fifthButton<10)
     {
       this.pageState.firstButton++;
       this.pageState.secondButton++;
@@ -133,19 +129,12 @@ export class CarTableComponent implements OnInit {
 
       if(this.pageState.isFirstButtonSelected === true)
       {
-        this.pageState.isFirstButtonSelected = false;
-        this.pageState.isSecondButtonSelected = false;
-        this.pageState.isThirdButtonSelected = false;
-        this.pageState.isFourthButtonSelected = false;
-        this.pageState.isFifthButtonSelected = false;
+        console.log("ftuff");
+        this.pageState.isFirstButtonSelected = false ;
       }
       else
       {
-        this.pageState.firstButton=this.pageState.secondButton;
-        this.pageState.secondButton=this.pageState.thirdButton;
-        this.pageState.thirdButton=this.pageState.fourthButton;
-        this.pageState.fourthButton=this.pageState.fifthButton;
-        this.pageState.isFifthButtonSelected = false;
+
       }
     }
   }
@@ -161,7 +150,11 @@ export class CarTableComponent implements OnInit {
       this.pageState.isThirdButtonSelected = false;
       this.pageState.isFourthButtonSelected = false;
       this.pageState.isFifthButtonSelected = false;
-      this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
+      if(this.pageState.firstButton == 1){
+        this.showCars = this.cars.slice(0,3);
+      }
+      else
+        this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
       this.initiatePageManagers()
     }
     if(target.attributes.id.value ==="second"){
