@@ -114,18 +114,18 @@ export class CalendarComponent implements AfterViewInit {
     let date = new Date();
 
    // let a = this.dayClicked({ date, events: CalendarEvent[this.events] });
-    for (i = 0; i < x.length; i++) {
+    //for (i = 0; i < x.length; i++) {
 
-      if (i >= 9 && i <= 17) {
-        x[i].style.backgroundColor = "red";
-      }
+    //  if (i >= 9 && i <= 17) {
+    //    x[i].style.backgroundColor = "red";
+    //  }
      
-        if (i >= 19 && i <= 23) {
-          x[i].style.backgroundColor = "green";
-        }
+    //    if (i >= 19 && i <= 23) {
+    //      x[i].style.backgroundColor = "green";
+    //    }
       
-      console.log(x[i].childNodes[2].childNodes[1].innerHTML);
-    }
+    //  console.log(x[i].childNodes[2].childNodes[1].innerHTML);
+    //}
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
