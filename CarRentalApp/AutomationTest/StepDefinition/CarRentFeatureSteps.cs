@@ -23,7 +23,13 @@ namespace AutomationTest.StepDefinition
         {
             driver.Url = "http://localhost:60711/home";
         }
-        
+
+        [When(@"set the url (.*)")]
+        public void WhenSetTheUrl(string url)
+        {
+            driver.Url = url;
+        }
+
         [Then(@"car rent logo is displayed")]
         public void ThenCarRentLogoIsDisplayed()
         {

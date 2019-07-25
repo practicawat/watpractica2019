@@ -24,4 +24,10 @@ Scenario: tabs are displayed
 	#| Home          |
 	| View all cars |
 	| Contact       |
+
+Scenario: tabs are displayed again
+	Given chrome instance is open
+	When set the url "http://localhost:59491"
+	Then the below tabs are available
+
 	
