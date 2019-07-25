@@ -12,6 +12,11 @@
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" />
@@ -31,10 +36,12 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\models\car.ts" />
+    <None Remove="ClientApp\src\app\models\Images.ts" />
     <None Remove="ClientApp\src\app\services\cars.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\Images.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\car.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\cars.service.ts" />
   </ItemGroup>
