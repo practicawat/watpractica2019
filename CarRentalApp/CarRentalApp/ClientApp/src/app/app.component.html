@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-info static-top">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -19,6 +20,7 @@
           </li>
           <li [ngClass]="contactButtonClass" (onClick)=testClick($event)>
             <a class="nav-link" (onClick)=testClick($event) href="#">Contact</a>
+
           </li>
         </ul>
       </div>
@@ -28,4 +30,5 @@
   <button (click) = testClick($event)>test</button>
 
 <router-outlet></router-outlet>
+
 
