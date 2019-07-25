@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarRentalApp.Migrations
 {
-    public partial class migrationAfterMerge : Migration
+    public partial class NewMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -72,21 +72,49 @@ namespace CarRentalApp.Migrations
                 {
                     table.PrimaryKey("PK_Rentals", x => x.RentalsId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Images",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    RelatedCarLicensePlate = table.Column<string>(nullable: true),
+                    Img = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Images", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Images_Cars_RelatedCarLicensePlate",
+                        column: x => x.RelatedCarLicensePlate,
+                        principalTable: "Cars",
+                        principalColumn: "LicensePlate",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Images_RelatedCarLicensePlate",
+                table: "Images",
+                column: "RelatedCarLicensePlate");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cars");
+                name: "Cities");
 
             migrationBuilder.DropTable(
-                name: "Cities");
+                name: "Images");
 
             migrationBuilder.DropTable(
                 name: "InfoUsers");
 
             migrationBuilder.DropTable(
                 name: "Rentals");
+
+            migrationBuilder.DropTable(
+                name: "Cars");
         }
     }
 }

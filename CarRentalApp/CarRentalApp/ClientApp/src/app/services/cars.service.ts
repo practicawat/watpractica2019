@@ -25,24 +25,18 @@ export class CarService {
   }
 
  
-  //deleteCar(someCar: Car) {
-  //  return this.http.delete<Car>(this.profileUrl,someCar);
-  //}
+  
 
   configUrl = 'ClientApp/tsconfig.json';
 
-  //randomUrl = 'http://localhost:63280/api/Cars/';
+ 
 
   getConfig() {
     return this.http.get(this.configUrl);
   }
   
 
-  //deleteCar(someCar: Car): Observable<{}> {
-  //  const urll = `${this.configUrl}/${someCar.licensePlate}`; // DELETE api/Cars/B-81-XJF
-  //  return this.http.delete(this.randomUrl);
-     
-  //}
+  
 
   deleteCar(someCar: Car): Observable<{}> {
 
@@ -54,9 +48,5 @@ export class CarService {
   getRandomCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.profileUrlRandom);
   }
-
-  addNewCar(newCar: Car) {
-    return this.http.post<Car>(this.profileUrl, newCar);
-  } 
 
 }

@@ -12,6 +12,8 @@ import { CarListUserComponent } from './car-list-user/car-list-user.component';
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { ConfirmationDeleteComponent } from './confirmation-delete/confirmation-delete.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -19,19 +21,21 @@ import { HomePageComponent } from './home-page/home-page.component';
   declarations: [
     AppComponent,
     CarComponentComponent,
-    AddCarRentalPageComponent
+    AddCarRentalPageComponent,
     AddNewCarComponent,
     EditCarComponent,
     CarListUserComponent,
     CarTableComponent,
     CarComponentComponent,
-    ConfirmationDeleteComponent
+    ConfirmationDeleteComponent,
     HomePageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

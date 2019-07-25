@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRentalApp.Migrations
 {
     [DbContext(typeof(CarRentalDbContext))]
-    [Migration("20190717092741_firstMigration")]
-    partial class firstMigration
+    [Migration("20190723084617_NewMigration")]
+    partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -56,6 +56,23 @@ namespace CarRentalApp.Migrations
                     b.HasKey("IDCity");
 
                     b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("CarRentalApp.Models.Images", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Img");
+
+                    b.Property<string>("RelatedCarLicensePlate");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RelatedCarLicensePlate");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("CarRentalApp.Models.InfoUser", b =>
@@ -98,6 +115,13 @@ namespace CarRentalApp.Migrations
                     b.HasKey("RentalsId");
 
                     b.ToTable("Rentals");
+                });
+
+            modelBuilder.Entity("CarRentalApp.Models.Images", b =>
+                {
+                    b.HasOne("CarRentalApp.Models.Car", "RelatedCar")
+                        .WithMany("ImageList")
+                        .HasForeignKey("RelatedCarLicensePlate");
                 });
 #pragma warning restore 612, 618
         }
