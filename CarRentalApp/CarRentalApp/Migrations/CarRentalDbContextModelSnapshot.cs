@@ -28,6 +28,8 @@ namespace CarRentalApp.Migrations
 
                     b.Property<bool>("HasAutomaticGearbox");
 
+                    b.Property<string>("ImgCars");
+
                     b.Property<string>("Model");
 
                     b.Property<short>("NrOfDoors");
@@ -96,6 +98,32 @@ namespace CarRentalApp.Migrations
                     b.HasKey("RentalsId");
 
                     b.ToTable("Rentals");
+                });
+
+            modelBuilder.Entity("CarRentalApp.Models.SearchedCar", b =>
+                {
+                    b.Property<string>("IdSearchedCar")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("IsChecked");
+
+                    b.Property<string>("concatenatePickup");
+
+                    b.Property<string>("concatenateReturn");
+
+                    b.Property<string>("selectedCity");
+
+                    b.Property<string>("selectedPickupHour");
+
+                    b.Property<string>("selectedPickupPeriod");
+
+                    b.Property<string>("selectedReturnHour");
+
+                    b.Property<string>("selectedReturnPeriod");
+
+                    b.HasKey("IdSearchedCar");
+
+                    b.ToTable("SearchedCars");
                 });
 #pragma warning restore 612, 618
         }

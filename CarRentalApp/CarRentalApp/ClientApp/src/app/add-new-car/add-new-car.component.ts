@@ -13,6 +13,8 @@ export class someCar {
     public hasAutomaticGearbox: boolean,
     public pricePerDay: number,
 
+    public imgCars: string,
+
   ) { }
 
     
@@ -35,6 +37,7 @@ constructor(private _carService: CarService) { }
 
 
 
+
     alert("You just added a new car!");
     var brand = ((document.getElementById("brand") as HTMLInputElement).value);
     var model = ((document.getElementById("model") as HTMLInputElement).value);
@@ -43,7 +46,9 @@ constructor(private _carService: CarService) { }
     var nrOfDoors = Number((document.getElementById("doornb") as HTMLInputElement).value);
     var gearbox = ((document.getElementById("gearbox") as HTMLInputElement).checked);
     var pricePerDay = Number((document.getElementById("price") as HTMLInputElement).value);
-    newCar = new someCar(brand, model, licensePlate, nrOfDoors, nrOfSeats, gearbox, pricePerDay);
+
+    var imgCars = ((document.getElementById("imgCars") as HTMLInputElement).value);
+    newCar = new someCar(brand, model, licensePlate, nrOfDoors, nrOfSeats, gearbox, pricePerDay, imgCars);
   
 
     console.log(newCar)
@@ -56,6 +61,7 @@ constructor(private _carService: CarService) { }
   }
 
   ngOnInit() {
+
 
   }
 
