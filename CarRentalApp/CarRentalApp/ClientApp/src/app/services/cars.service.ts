@@ -41,7 +41,7 @@ export class CarService {
     return this.http.post<InfoUser>(this.profileUrlUser, newUser);
 
 
-
+  }
   configUrl = 'ClientApp/tsconfig.json';
 
   //randomUrl = 'http://localhost:63280/api/Cars/';

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRentalApp.Migrations
 {
     [DbContext(typeof(CarRentalDbContext))]
-    [Migration("20190722111622_afterReviewMigration")]
-    partial class afterReviewMigration
+    [Migration("20190725102502_newMigr")]
+    partial class newMigr
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,11 @@ namespace CarRentalApp.Migrations
 
                     b.Property<string>("Brand");
 
+                    b.Property<string>("CurrentCity");
+
                     b.Property<bool>("HasAutomaticGearbox");
+
+                    b.Property<string>("ImgCars");
 
                     b.Property<string>("Model");
 
@@ -98,6 +102,32 @@ namespace CarRentalApp.Migrations
                     b.HasKey("RentalsId");
 
                     b.ToTable("Rentals");
+                });
+
+            modelBuilder.Entity("CarRentalApp.Models.SearchedCar", b =>
+                {
+                    b.Property<string>("IdSearchedCar")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("IsChecked");
+
+                    b.Property<string>("concatenatePickup");
+
+                    b.Property<string>("concatenateReturn");
+
+                    b.Property<string>("selectedCity");
+
+                    b.Property<string>("selectedPickupHour");
+
+                    b.Property<string>("selectedPickupPeriod");
+
+                    b.Property<string>("selectedReturnHour");
+
+                    b.Property<string>("selectedReturnPeriod");
+
+                    b.HasKey("IdSearchedCar");
+
+                    b.ToTable("SearchedCars");
                 });
 #pragma warning restore 612, 618
         }
