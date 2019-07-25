@@ -4,6 +4,7 @@ import { SearchedCarService } from 'src/app/services/searched-car.service';
 import { findLast } from '@angular/compiler/src/directive_resolver';
 import { SearchedCar } from 'src/app/models/searchedCar';
 import { isUndefined } from 'util';
+import { Router } from '@angular/router';
 export class PageState{
   constructor(
     public firstButton: number,
@@ -36,7 +37,7 @@ export class CarTableComponent implements OnInit {
 
 
 
-  constructor(private _carService: CarService, private _searchedCarService: SearchedCarService) {
+  constructor(private router : Router,private _carService: CarService, private _searchedCarService: SearchedCarService) {
    this.pageState = new PageState(
      1,2,3,true,false,false)
     this.initiatePageManagers();
