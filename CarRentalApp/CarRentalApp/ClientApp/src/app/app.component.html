@@ -1,8 +1,34 @@
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-info static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="https://www.autorentacar.net/images/content/logo.png" alt="Logo" class="img-responsive" width="200" height="50">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto" (onClick)=testClick($event)>
+          <li [ngClass]="homeButtonClass" (onClick)=testClick($event)>
+            <a class="nav-link" (onClick)=testClick($event) href="home">
+              Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li [ngClass]="carListButtonClass" (onClick)=testClick($event)>
+            <a class="nav-link" (onClick)=testClick($event) href="car-list-user">View all cars</a>
+          </li>
+          <li [ngClass]="contactButtonClass" (onClick)=testClick($event)>
+            <a class="nav-link" (onClick)=testClick($event) href="#">Contact</a>
 
-<app-home-page></app-home-page>
- <confirmation-delete></confirmation-delete>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+  <button (click) = testClick($event)>test</button>
 
+<router-outlet></router-outlet>
 
 

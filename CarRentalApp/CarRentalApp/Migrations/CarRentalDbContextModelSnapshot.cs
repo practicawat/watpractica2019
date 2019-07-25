@@ -15,7 +15,7 @@ namespace CarRentalApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -26,7 +26,11 @@ namespace CarRentalApp.Migrations
 
                     b.Property<string>("Brand");
 
+                    b.Property<string>("CurrentCity");
+
                     b.Property<bool>("HasAutomaticGearbox");
+
+                    b.Property<string>("ImgCars");
 
                     b.Property<string>("Model");
 
@@ -120,6 +124,30 @@ namespace CarRentalApp.Migrations
                     b.HasOne("CarRentalApp.Models.Car", "RelatedCar")
                         .WithMany("ImageList")
                         .HasForeignKey("RelatedCarLicensePlate");
+            modelBuilder.Entity("CarRentalApp.Models.SearchedCar", b =>
+                {
+                    b.Property<string>("IdSearchedCar")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("IsChecked");
+
+                    b.Property<string>("concatenatePickup");
+
+                    b.Property<string>("concatenateReturn");
+
+                    b.Property<string>("selectedCity");
+
+                    b.Property<string>("selectedPickupHour");
+
+                    b.Property<string>("selectedPickupPeriod");
+
+                    b.Property<string>("selectedReturnHour");
+
+                    b.Property<string>("selectedReturnPeriod");
+
+                    b.HasKey("IdSearchedCar");
+
+                    b.ToTable("SearchedCars");
                 });
 #pragma warning restore 612, 618
         }

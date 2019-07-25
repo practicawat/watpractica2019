@@ -30,7 +30,8 @@ namespace CarRentalApp.Controllers
             _hostingEnvironment = hostingEnvironment;
         }
 
-        // GET: api/Cars
+
+        // GET: api/Cars/id
         [EnableCors("MyPolicy")]
         [HttpGet]
         public IEnumerable<Car> GetCars()

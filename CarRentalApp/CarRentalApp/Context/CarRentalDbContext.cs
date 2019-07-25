@@ -14,6 +14,7 @@ namespace CarRentalApp.Context
         public DbSet<Rentals> Rentals { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Images> Images { get; set; }
+        public DbSet<SearchedCar> SearchedCars { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //empty

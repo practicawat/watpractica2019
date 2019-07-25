@@ -16,6 +16,7 @@ export class someCar implements Car {
     public hasAutomaticGearbox: boolean,
     public pricePerDay: number,
     public ImageList: Images[]
+
   ) { }
 }
 
@@ -75,6 +76,7 @@ export class AddNewCarComponent {
   }
 
 
+
   //clickAction(event) {
     
 
@@ -92,6 +94,7 @@ export class AddNewCarComponent {
   //  let imageList: Images[] = new Array(100);
   //  imageList[0] = newImageObj;
   //  newCar = new someCar(brand, model, licensePlate, nrOfDoors, nrOfSeats, gearbox, pricePerDay, imageList);
+
   
 
   //  console.log(newCar)
@@ -104,7 +107,7 @@ export class AddNewCarComponent {
   //}
   
   ngOnInit() {
-    
+
   }
 
 }
