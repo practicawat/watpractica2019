@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarRentalApp.Migrations
 {
-    public partial class migrationContinueHomePage : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -73,6 +73,25 @@ namespace CarRentalApp.Migrations
                 {
                     table.PrimaryKey("PK_Rentals", x => x.RentalsId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "SearchedCars",
+                columns: table => new
+                {
+                    IdSearchedCar = table.Column<string>(nullable: false),
+                    selectedCity = table.Column<string>(nullable: true),
+                    selectedPickupHour = table.Column<string>(nullable: true),
+                    selectedReturnHour = table.Column<string>(nullable: true),
+                    selectedPickupPeriod = table.Column<string>(nullable: true),
+                    selectedReturnPeriod = table.Column<string>(nullable: true),
+                    concatenatePickup = table.Column<string>(nullable: true),
+                    concatenateReturn = table.Column<string>(nullable: true),
+                    IsChecked = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SearchedCars", x => x.IdSearchedCar);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -88,6 +107,9 @@ namespace CarRentalApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Rentals");
+
+            migrationBuilder.DropTable(
+                name: "SearchedCars");
         }
     }
 }
