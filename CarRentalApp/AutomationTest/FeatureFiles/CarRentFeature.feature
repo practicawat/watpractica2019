@@ -24,4 +24,25 @@ Scenario: tabs are displayed
 	#| Home          |
 	| View all cars |
 	| Contact       |
+
+Scenario: car-list is working
+	Given chrome instance is open
+	When set the url for car-list
+	Then car rent logo is displayed for car-list
+
+Scenario: imagine is working
+	Given chrome instance is open
+	When set the url for car-list
+	Then car photo is displayed for car-list
+
+
+Scenario: button is working
+	Given chrome instance is open
+	When set the url for car-list
+	Then button is visible
+
+Scenario: link to rent! is working
+	Given chrome instance is open
+	When set the url for car-list
+	Then link to rent
 	
