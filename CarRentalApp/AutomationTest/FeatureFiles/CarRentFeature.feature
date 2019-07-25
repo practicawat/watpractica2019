@@ -16,18 +16,14 @@ Scenario: age checkbox is enabled
 	Then age checkbox is enabled
 	And  the label is 'Age over 21 years!'
 
-Scenario: tabs are displayed
+Scenario: the car's brand is displayed
 	Given chrome instance is open
 	When set the url
-	Then the below tabs are available
-	| tabs          |
-	#| Home          |
-	| View all cars |
-	| Contact       |
+	Then the brand is displayed
+	And the first car is 'AUDI '
+	And the second car is 'MERCEDES'
+	And the last one is 'TOYOTA'
 
-Scenario: tabs are displayed again
-	Given chrome instance is open
-	When set the url "http://localhost:59491"
-	Then the below tabs are available
+
 
 	

@@ -119,10 +119,10 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("tabs are displayed", SourceLine=18)]
-        public virtual void TabsAreDisplayed()
+        [TechTalk.SpecRun.ScenarioAttribute("the car\'s brand is displayed", SourceLine=18)]
+        public virtual void TheCarsBrandIsDisplayed()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("tabs are displayed", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("the car\'s brand is displayed", null, ((string[])(null)));
 #line 19
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -130,32 +130,14 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("chrome instance is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 21
  testRunner.When("set the url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "tabs"});
-            table1.AddRow(new string[] {
-                        "View all cars"});
-            table1.AddRow(new string[] {
-                        "Contact"});
 #line 22
- testRunner.Then("the below tabs are available", ((string)(null)), table1, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("tabs are displayed again", SourceLine=27)]
-        public virtual void TabsAreDisplayedAgain()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("tabs are displayed again", null, ((string[])(null)));
-#line 28
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 29
- testRunner.Given("chrome instance is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 30
- testRunner.When("set the url \"http://localhost:59491\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 31
- testRunner.Then("the below tabs are available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the brand is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 23
+ testRunner.And("the first car is \'AUDI \'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.And("the second car is \'MERCEDES\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
+ testRunner.And("the last one is \'TOYOTA\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

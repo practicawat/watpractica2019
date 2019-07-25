@@ -21,19 +21,14 @@ namespace AutomationTest.StepDefinition
         [When(@"set the url")]
         public void WhenSetTheUrl()
         {
-            driver.Url = "http://localhost:60711/home";
+            driver.Url = "http://localhost:59491/home";
         }
 
-        [When(@"set the url (.*)")]
-        public void WhenSetTheUrl(string url)
-        {
-            driver.Url = url;
-        }
 
         [Then(@"car rent logo is displayed")]
         public void ThenCarRentLogoIsDisplayed()
         {
-            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-home-page/div[2]/div/table/tbody/tr[1]/td[1]/img"));
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-home-page/div/div/div[1]/div/div/h5"));
             Assert.IsTrue(element != null);
 
             driver.Close();
@@ -42,7 +37,7 @@ namespace AutomationTest.StepDefinition
         [Then(@"'(.*)' label is displayed")]
         public void ThenLabelIsDisplayed(string label)
         {
-            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-home-page/div[1]/p[1]"));
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-home-page/div/div/div[1]/div/div/h5"));
             Assert.AreEqual(label, element.Text);
             driver.Close();
         }
@@ -57,47 +52,76 @@ namespace AutomationTest.StepDefinition
         [Then(@"the label is '(.*)'")]
         public void ThenTheLabelIs(string label)
         {
-            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-home-page/div[1]/div/label"));
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-home-page/div/div/div[1]/div/div/div/label"));
             Assert.AreEqual(label, element.Text);
             driver.Close();
         }
 
-        [Then(@"the below tabs are available")]
-        public void ThenTheBelowTabsAreAvailable(Table table)
+        //[Then(@"the below tabs are available")]
+        //public void ThenTheBelowTabsAreAvailable(Table table)
+        //{
+        //    foreach (var row in table.Rows)
+        //    {
+        //        IWebElement element;
+
+        //        switch (row["tabs"].ToLower())
+        //        {
+        //            case "home":
+        //                // //*[@id="navbarResponsive"]/ul/li[1]/a
+        //                element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[1]"));
+
+        //                break;
+
+        //            case "view all cars":
+        //                element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[2]/a"));
+
+        //                break;
+
+        //            case "contact":
+        //                element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[3]/a"));
+
+        //                break;
+
+        //            default:
+        //                Assert.Fail("unexpected tab was received " + row["tabs"]);
+        //                element = null;
+        //                break;
+        //        }
+
+        //        Assert.AreEqual(row["tabs"], element.Text);
+        //        driver.Close();
+        //    }
+        //}
+
+        [Then(@"the brand is displayed")]
+        public void ThenTheBrandIsDisplayed()
         {
-            foreach (var row in table.Rows)
-            {
-                IWebElement element;
-
-                switch (row["tabs"].ToLower())
-                {
-                    case "home":
-                        // //*[@id="navbarResponsive"]/ul/li[1]/a
-                        element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[1]"));
-
-                        break;
-
-                    case "view all cars":
-                        element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[2]/a"));
-
-                        break;
-
-                    case "contact":
-                        element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[3]/a"));
-
-                        break;
-
-                    default:
-                        Assert.Fail("unexpected tab was received " + row["tabs"]);
-                        element = null;
-                        break;
-                }
-
-                Assert.AreEqual(row["tabs"], element.Text);
-                driver.Close();
-            }
+            ScenarioContext.Current.Pending();
         }
 
+
+
+        [Then(@"the first car is '(.*)'")]
+        public void ThenTheFirstCarIs(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
+
+        [Then(@"the second car is '(.*)'")]
+        public void ThenTheSecondCarIs(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
+
+        [Then(@"the last one is '(.*)'")]
+        public void ThenTheLastOneIs(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
 
 
 

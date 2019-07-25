@@ -11,7 +11,7 @@ export class CarService {
 
   private readonly profileUrl: string = "api/Cars";
   private readonly profileUrlRandom: string = "api/Cars/GetRandomCars";
-  private readonly randomUrl: string = 'http://localhost:64738/api/cars/BV-asd-asd';
+  private readonly randomUrl: string = 'http://localhost:59491/api/cars/BV-asd-asd';
 
   constructor(protected http: HttpClient) { }
 
@@ -33,7 +33,7 @@ export class CarService {
 
   configUrl = 'ClientApp/tsconfig.json';
 
-  //randomUrl = 'http://localhost:63280/api/Cars/';
+  //randomUrl = 'http://localhost:59491/api/Cars/';
 
   getConfig() {
     return this.http.get(this.configUrl);
