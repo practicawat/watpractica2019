@@ -24,7 +24,7 @@ export class someUser {
 export class AddCarRentalPageComponent implements OnInit {
   public cars = [];
   public users = [];
-  public showSelectedCar = [];
+  public selectedCars = [];
 
   
   constructor(private _carService: CarService) { }
@@ -47,9 +47,7 @@ export class AddCarRentalPageComponent implements OnInit {
   ngOnInit() {
     this._carService.getAllCars()
       .subscribe(data => this.cars = data);
-
-
-
+    this.selectedCars = history.state.data.selectedCars;
   }
 
 

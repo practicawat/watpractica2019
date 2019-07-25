@@ -41,9 +41,7 @@ export class CarService {
   addNewUser(newUser: InfoUser): Observable<InfoUser> {
     return this.http.post<InfoUser>(this.profileUrlUser, newUser);
 
-
-
-
+  }
   configUrl = 'ClientApp/tsconfig.json';
 
  

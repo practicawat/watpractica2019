@@ -5,6 +5,7 @@ import { findLast } from '@angular/compiler/src/directive_resolver';
 import { SearchedCar } from 'src/app/models/searchedCar';
 import { isUndefined } from 'util';
 import { Router } from '@angular/router';
+import { Car } from 'src/app/models/car';
 export class PageState{
   constructor(
     public firstButton: number,
@@ -36,7 +37,6 @@ export class CarTableComponent implements OnInit {
   public searchedCar: SearchedCar;
 
 
-
   constructor(private router : Router,private _carService: CarService, private _searchedCarService: SearchedCarService) {
    this.pageState = new PageState(
      1,2,3,true,false,false)
@@ -55,6 +55,13 @@ export class CarTableComponent implements OnInit {
       this.cars = history.state.data.cars;
       this.showCars = this.cars.slice(0, 3);
     }
+  }
+
+  rentClick(event: any, idButton) {
+    var indexNumber = +idButton;
+    this.router.navigate(['/add-car-rental-page'], { state: { data: { selectedCars: this.showCars[indexNumber] } } });
+    console.log(this.showCars);
+    // this.showCars[idButton]   
   }
 
 
