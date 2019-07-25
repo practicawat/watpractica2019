@@ -26,6 +26,8 @@ namespace CarRentalApp.Migrations
 
                     b.Property<string>("Brand");
 
+                    b.Property<string>("CurrentCity");
+
                     b.Property<bool>("HasAutomaticGearbox");
 
                     b.Property<string>("ImgCars");
