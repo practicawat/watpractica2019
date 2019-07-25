@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Car } from './models/car';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',

@@ -3,6 +3,7 @@ import { CarService } from 'src/app/services/cars.service';
 import { SearchedCarService } from 'src/app/services/searched-car.service';
 import { findLast } from '@angular/compiler/src/directive_resolver';
 import { SearchedCar } from 'src/app/models/searchedCar';
+import { isUndefined } from 'util';
 export class PageState{
   constructor(
     public firstButton: number,
@@ -43,16 +44,16 @@ export class CarTableComponent implements OnInit {
 
 
   ngOnInit() {
-    this._carService.getAllCars()
-      .subscribe(data=>{ 
-        this.cars = data
-        this.showCars = this.cars.slice(0,3)
-      })
-    /*this._searchedCarService.postSearchedInfo(this.searchedCar)
-      .subscribe(data => {
-        this.cars = data
-        this.showCars = this.cars.slice(0, 3)
-      })      */
+    if (isUndefined(history.state.data) || isUndefined(history.state.data.cars)) {
+      this._carService.getAllCars()
+        .subscribe(data => {
+          this.cars = data
+          this.showCars = this.cars.slice(0, 3)
+        })
+    } else {
+      this.cars = history.state.data.cars;
+      this.showCars = this.cars.slice(0, 3);
+    }
   }
 
 

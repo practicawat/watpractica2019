@@ -10,6 +10,7 @@ export class someCar {
     public nrOfDoors: number,
     public hasAutomaticGearbox: boolean,
     public pricePerDay: number,
+    public imgCars: string,
   ) { }
 }
 
@@ -38,7 +39,7 @@ export class EditCarComponent implements OnInit {
    var nrOfDoors = Number((document.getElementById("doornb") as HTMLInputElement).value);
     var gearbox = ((document.getElementById("gearbox") as HTMLInputElement).checked);
     var pricePerDay = Number((document.getElementById("price") as HTMLInputElement).value);
-    newCar = new someCar(brand, model, licensePlate, nrOfDoors, nrOfSeats, gearbox, pricePerDay);
+    newCar = new someCar(brand, model, licensePlate, nrOfDoors, nrOfSeats, gearbox, pricePerDay,'imagine');
 
 
    // console.log(newCar)

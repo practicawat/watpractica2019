@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { CarService } from '../services/cars.service'
 import { CityService } from '../services/cities.service'
 
@@ -6,11 +6,17 @@ import { Car } from '../models/car';
 import { City } from '../models/city';
 import { SearchedCar } from '../models/searchedCar';
 import { SearchedCarService } from '../services/searched-car.service';
+import { debug } from 'util';
+import { ActivatedRoute, Router, RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule, routingComponents } from "../app-routing.module";
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
+
+
 export class HomePageComponent implements OnInit {
   public cars = [];
   public randomCars: Car[] = [];
@@ -20,7 +26,8 @@ export class HomePageComponent implements OnInit {
 
   public testCars = [];
 
-  constructor(private _carService: CarService, private _cityService: CityService, private _searchedCarService: SearchedCarService) { }
+  constructor(private router : Router, private _carService: CarService, private _cityService: CityService, private _searchedCarService: SearchedCarService) { }
+
 
   ngOnInit() {
 
@@ -70,6 +77,7 @@ export class HomePageComponent implements OnInit {
     let pickupDate = new Date(this.searchedCar.concatenatePickup);
     let returnDate = new Date(this.searchedCar.concatenateReturn);
 
+
     if (pickupDate > returnDate)
       alert("Pickup date must be before return date!");
     else {
@@ -78,13 +86,11 @@ export class HomePageComponent implements OnInit {
       else {
         this._searchedCarService.postSearchedInfo(this.searchedCar)
           .subscribe(data => {
-            this.testCars = data
-            console.log(this.searchedCar)
+            this.testCars = data         
+            this.router.navigate(['/car-list-user'], { state: { data: { cars: this.testCars } } });
             console.log(this.testCars)
-
         })
-        /*navigare catre pagina cu lista de masini corespunzatoare input-ului*/
-      }
+        }
     }
   }
 }
