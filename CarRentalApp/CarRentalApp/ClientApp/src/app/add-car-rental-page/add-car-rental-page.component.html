@@ -1,64 +1,72 @@
 
-<div class="container">
-        <div class="row">
-                <h2>Rent a car: </h2>
-               
-                <img class="img-responsive" src="https://storage.googleapis.com/gtspirit/uploads/2016/01/Audi-RS7-Performance-7.jpg" class="img-thumbnail" alt="Audi RS7"   width="304" height="236">
-                <div class="col-*-*">
-                        <h3>Registration Number: </h3>
-                        <h3>Car Brand - Type: </h3>
-                        <h3>Number of Doors:</h3>
-                </div>
-                
-                
-        </div>
+<div class="rentingPart">
 
-        
-        <div class = "form-group" style="width: 30%; height: 10%;">
-            <h4>User Information: </h4>
-            <label for="usr"> First Name: </label>
-            <input type="text" class="form-control" id="amount" />
-            <label for="usr"> Last Name: </label>
-            <input type="text" class="form-control" id="amount" />
-            <label for="usr"> Email: </label>
-            <input type="text" class="form-control" id="amount" />
-            <label for="usr"> Phone Number: </label>
-            <input type="text" class="form-control" id="amount" />
+  <h4>Rent a car:   </h4>
 
-        </div>
+  <table class="carSpecs">
+
+    <thead>
+
+      <tr>
+
+        <th>Photo</th>
+
+        <th>Registration number</th>
+
+        <th>Car Brand-Type</th>
+
+        <th>Number of doors</th>
+
+      </tr>
 
 
-        <div class="month"> 
-            <ul>
-              <li class="prev">&#10094;</li>
-              <li class="next">&#10095;</li>
-              <li>Ianuarie<br><span style="font-size:18px">2019</span></li>
-              <li>Februarie<br><span style="font-size:18px">2019</span></li>
-            </ul>
-          </div>
+
+    </thead>
+
+
+
+    <tbody>
+
+      <tr>
+
+        <td> <div class="col-sm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2aZzJlEZYzJRcoEPAKm9QlKL1g3AZDqBJZ21p61AWcYHvt16MuA" class="rounded-circle" /> </div></td>
           
-          <ul class="weekdays">
-            <li>Mo</li>
-            <li>Tu</li>
-            <li>We</li>
-            <li>Th</li>
-            <li>Fr</li>
-            <li>Sa</li>
-            <li>Su</li>
-          </ul>
-          
-          <ul class="days"> 
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li><span class="active">10</span></li>
-            <li>11</li>
-         
-          </ul> 
-       
+        <td>{{selectedCars.licensePlate}}</td>
+
+        <td>{{selectedCars.brand}}</td>
+
+        <td>{{selectedCars.nrOfDoors}}</td>
+
+      </tr>
+
+    </tbody>
+
+
+
+  </table>
+
+</div>
+
+  <div class="userInformation">
+    <h4>User Information: </h4>
+    <label for="usr"> First Name: </label>
+    <input type="text" class="form-control" id="userFirstName" />
+    <label for="usr"> Last Name: </label>
+    <input type="text" class="form-control" id="userLastName" />
+    <label for="usr"> Email: </label>
+    <input type="text" class="form-control" id="email" />
+    <label for="usr"> Phone Number: </label>
+    <input type="text" class="form-control" id="phoneNumber" />
+    <div class="buttonpoz">
+
+      <button type="button" (click)='clickAction1($event)' class="button">Send request</button>
+
+    </div>
+
+  </div>
+  <div class="container">
+    <app-calendar></app-calendar>
+  </div>
+
+
+

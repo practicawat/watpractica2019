@@ -9,6 +9,10 @@ using CarRentalApp.Context;
 using CarRentalApp.Models;
 using Microsoft.AspNetCore.Cors;
 using System.Collections;
+using System.IO;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting;
+using System.Net.Http.Headers;
 
 namespace CarRentalApp.Controllers
 {
@@ -17,18 +21,22 @@ namespace CarRentalApp.Controllers
     public class CarsController : ControllerBase
     {
         private readonly CarRentalDbContext _context;
+        private readonly IHostingEnvironment _hostingEnvironment;
 
-        public CarsController(CarRentalDbContext context)
+
+        public CarsController(CarRentalDbContext context, IHostingEnvironment hostingEnvironment)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
         }
 
-        // GET: api/Cars
+
+        // GET: api/Cars/id
         [EnableCors("MyPolicy")]
         [HttpGet]
         public IEnumerable<Car> GetCars()
         {
-                return _context.Cars.ToArray();
+            return _context.Cars.ToArray();
         }
 
         [HttpGet("{GetRandomCars}")]
@@ -64,7 +72,7 @@ namespace CarRentalApp.Controllers
             }
             return randomList;
         }
-       
+
         // GET: api/Cars/5
         [HttpGet("{licensePlate}")]
         public async Task<IActionResult> GetCar([FromRoute] string licensePlate)
@@ -119,6 +127,41 @@ namespace CarRentalApp.Controllers
             return NoContent();
         }
 
+        [Route("Uploads")]
+        [HttpPost]
+        public ActionResult UploadFile(string filee)
+        {
+
+            try
+            { 
+                foreach (var file in Request.Form.Files)
+                {
+                    string folderName = "C:/temp_Practica_3.1/watpractica2019/CarRentalApp/CarRentalApp/ClientApp/src/assets/Img";
+                    string webRootPath = _hostingEnvironment.WebRootPath;
+                    string newPath = Path.Combine(webRootPath, folderName);
+                    if (!Directory.Exists(newPath))
+                    {
+                        Directory.CreateDirectory(newPath);
+                    }
+                    if (file.Length > 0)
+                    {
+                        string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                        string fullPath = Path.Combine(newPath, fileName);
+                        using (var stream = new FileStream(fullPath, FileMode.Create))
+                        {
+                            file.CopyTo(stream);
+                            _context.Images.Add(new Images());
+                        }
+                    }
+                }                
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         // POST: api/Cars
         [HttpPost]
         public async Task<IActionResult> PostCar([FromBody] Car car)
@@ -128,6 +171,8 @@ namespace CarRentalApp.Controllers
                 return BadRequest(ModelState);
             }
 
+            
+           
             _context.Cars.Add(car);
             await _context.SaveChangesAsync();
 

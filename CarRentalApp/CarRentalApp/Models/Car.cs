@@ -13,18 +13,8 @@ namespace CarRentalApp.Models
             public  short NrOfSeats { get; set; }
             public  bool HasAutomaticGearbox { get; set; }
             public  float PricePerDay { get; set; }
-
-            public Car(string brand, string model, short nrOfDoors, string licensePlate, short nrOfSeats, bool hasAutomaticGearbox, float pricePerDay)
-            {
-                this.Brand = brand;
-                this.Model = model;
-                this.NrOfDoors = nrOfDoors;
-                this.LicensePlate = licensePlate;
-                this.NrOfSeats = nrOfSeats;
-                this.HasAutomaticGearbox = hasAutomaticGearbox;
-                this.PricePerDay = pricePerDay;
-            }
-
-        
+            public Images[] ImageList { get; set; }
+            public string ImgCars { get; set; }  
+            public string CurrentCity { get; set; }
     }
 }

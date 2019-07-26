@@ -1,124 +1,80 @@
-<!-- Navigation -->
 
+<div class="container-fluid">
 
+  <div class="row">
 
-<div class="split left" ng-controller="geek" ng-app="app">
-  <p class="text-left">Search</p>
-  <p class="text-justify">
-    City:
-    <select>
-      <option *ngFor="let index of city">{{ index.cityName }}</option>
-    </select>
-  </p>
+    <div class="col-lg">
+      <div class="shadow-sm card mt-3">
+        <div class="card-body">
+          <h5 class="card-title text-justify">Search</h5>
+          <p class="text-justify">
+            City:
+            <select (change)="selectChangeHandler($event)">
+              <option *ngFor="let index of city">{{ index.cityName }}</option>
+            </select>
+          </p>
 
-  <p class="text-justify">
-    Pickup period
-    <label for="dateofbirth"></label>
-    <input type="date" name="dateofbirth" id="dateofbirth">
+          <p class="text-justify">
+            Pickup period
+            <label for="pickupdate"></label>
+            <input type="date" name="pickupdate" id="pickupdate" (change)="selectPickupPeriodHandler($event)">
 
-    <select style="margin-left: 20%">
-      <option *ngFor="let index of hours">{{ index }}</option>
-    </select>
+            <select style="margin-left: 20%" (change)="selectPickupHourHandler($event)">
+              <option *ngFor="let index of hours">{{ index }}</option>
+            </select>
+          </p>
 
-  </p>
+          <p class="text-justify">
+            Return period
+            <label for="returndate"></label>
+            <input type="date" name="returndate" id="returndate" (change)="selectReturnPeriodHandler($event)" />
 
-  <p class="text-justify">
-    Return period
-    <label for="dateofbirth"></label>
-    <input type="date" name="dateofbirth" id="dateofbirth" />
+            <select style="margin-left: 20%" (change)="selectReturnHourHandler($event)">
+              <option *ngFor="let index of hours">{{ index }}</option>
+            </select>
+          </p>
 
-    <select style="margin-left: 20%">
-      <option *ngFor="let index of hours">{{ index }}</option>
-    </select>
-  </p>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked" (change)="verifyChecked($event.srcElement)">
+            <label class="custom-control-label" for="defaultUnchecked">
+              Age over 21 years!
+            </label>
+          </div>
 
-  <p class="text-justify">
-    <br />
-    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" ng-model="check" onchange="document.getElementById('sendNewSms').disabled = !this.checked;">
-    <label class="custom-control-label" for="defaultUnchecked">Age over 21 years!</label>
-    <input type="submit" value="Search" name="sendNewSms" class="inputButton" id="sendNewSms" disabled="disabled" />
-    <br />
+          <button type="button" class="btn btn-primary" (click)="searchClick($event)">Search</button>
+        </div>
+        </div>
+      </div>
 
-  </p>
-</div>
+    <div class="col-lg">
+      <div class="shadow-sm card mt-3">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table>
+              <tbody>
+                <ng-container *ngFor="let car of randomCars">
+                  <tr class="border_top">
+                    <td style="width:30%;height:100px;" rowspan="3"><img src="../../assets/img/{{car.imgCars}}" alt="CarImage" class="img-thumbnail" /></td>
+                    <td>Registration number</td>
+                    <td style="width:40%">{{car.licensePlate}}</td>
+                  </tr>
 
-  <button type="button" class="btn btn-primary">
-      <a class="nav-link" href="car-list-user"></a>
-      Search
-  </button>
+                  <tr>
+                    <td>Car brand type</td>
+                    <td>{{car.brand}}</td>
+                  </tr>
 
-  
-        
-  </div>
-
-  <div class="split right">
-    <div class="table-responsive">
-      <table style="margin-top: 15%">
-        <tbody>
-          <tr class="border_top">
-            <td style="width:30%" rowspan="3"><img src="https://cdn2.carbuyer.co.uk/sites/carbuyer_d7/files/2017/12/lamborghini-urus-8_1.jpg" alt="CarImage" class="img-thumbnail" /></td>
-            <td>Registration number</td>
-            <td style="width:40%">{{randomCars[0].licensePlate}}</td>
-          </tr>
-          <tr>
-            <td>Car brand type</td>
-            <td>{{randomCars[0].brand}}</td>
-          </tr>
-
-          <tr>
-            <td>Number of doors</td>
-            <td>{{randomCars[0].nrOfDoors}}</td>
-          </tr>
-
-          <tr class="border_top">
-            <td rowspan="3"><img src="https://cdn2.carbuyer.co.uk/sites/carbuyer_d7/files/2017/12/lamborghini-urus-8_1.jpg" alt="CarImage" class="img-thumbnail" /></td>
-            <td>Registration number</td>
-            <td>{{randomCars[1].licensePlate}}</td>
-          </tr>
-
-          <tr>
-            <td>Car brand type</td>
-            <td>{{randomCars[1].brand}}</td>
-          </tr>
-
-          <tr class="border_bottom">
-            <td>Number of doors</td>
-            <td>{{randomCars[1].nrOfDoors}}</td>
-          </tr>
-
-          <tr class="border_top">
-            <td rowspan="4"><img src="https://cdn2.carbuyer.co.uk/sites/carbuyer_d7/files/2017/12/lamborghini-urus-8_1.jpg" alt="CarImage" class="img-thumbnail" /></td>
-            <td>Registration number</td>
-            <td>{{randomCars[2].licensePlate}}</td>
-          </tr>
-
-          <tr>
-            <td>Car brand type</td>
-            <td>{{randomCars[2].brand}}</td>
-          </tr>
-
-          <tr>
-            <td>Number of doors</td>
-            <td>{{randomCars[2].nrOfDoors}}</td>
-          </tr>
-
-          <tr class="border_top"></tr>
-        </tbody>
-
-      </table>
+                  <tr>
+                    <td>Number of doors</td>
+                    <td>{{car.nrOfDoors}}</td>
+                  </tr>
+                  </ng-container>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-
-
-  <script>
-
-    var app = angular.module("app", []);
-    app.controller('geek', ['$scope', function ($scope) {
-      $scope.disableClick = function (isDisabled) {
-        $scope.isDisabled = !isDisabled;
-      }
-    }]);
-  </script>
+      </div>
 
 

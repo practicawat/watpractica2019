@@ -1,3 +1,5 @@
+import { Images } from './Images';
+
 export interface Car {
   licensePlate: string,
   brand: string,
@@ -6,5 +8,5 @@ export interface Car {
   nrOfSeats: number,
   hasAutomaticGearbox: boolean,
   pricePerDay: number,
-
+  ImageList: Images[],
 }
