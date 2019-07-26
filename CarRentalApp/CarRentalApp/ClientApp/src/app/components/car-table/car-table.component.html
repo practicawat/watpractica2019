@@ -15,14 +15,16 @@
             <td>{{showCars[0].brand}}</td>
             <td>{{showCars[0].nrOfDoors}}</td>
             <td><button id="1" (click)="rentClick($event, '0')">Rent</button></td>
+            <td><button id="1d" (click)="deleteClick($event, '0')">Delete</button></td>
             <!--<td><a href="add-car-rental-page">Rent!</a></td>-->
           </tr>
           <tr>
             <td>  <div class="col-sm"><img src="https://picsum.photos/id/111/130/130" class="rounded-circle" alt="Cinque Terre"></div>   </td>
             <td>{{showCars[1].licensePlate}}</td>
-            <td>{{showCars[1].brand}}</td>
+            <td>{{showCars[1].brand}}</td>  
             <td>{{showCars[1].nrOfDoors}}</td>
             <td><button id="2"(click)="rentClick($event, '1')">Rent</button></td>
+            <td><button id="2d"(click)="deleteClick($event, '1')">Delete</button></td>
             <!--<td><a href="add-car-rental-page">Rent!</a></td>-->
           </tr>
           <tr>
@@ -31,6 +33,7 @@
             <td>{{showCars[2].brand}}</td>
             <td>{{showCars[2].nrOfDoors}}</td>
             <td><button id ="3" (click)="rentClick($event, '2')">Rent</button></td>
+            <td><button id ="3d" (click)="deleteClick($event, '2')">Delete</button></td>
             <!--<td><a href="add-car-rental-page">Rent!</a></td>-->
           </tr>
         </tbody>

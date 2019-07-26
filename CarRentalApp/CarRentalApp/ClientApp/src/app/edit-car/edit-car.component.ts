@@ -29,7 +29,9 @@ export class EditCarComponent implements OnInit {
   public cars = [];
   public currentCar: someCar;
   public showCars = [];
+
   constructor(private _carService: CarService, private http: HttpClient) {
+
 
   }
 
@@ -45,9 +47,11 @@ export class EditCarComponent implements OnInit {
     var nrOfDoors = Number((document.getElementById("doornb") as HTMLInputElement).value);
     var gearbox = ((document.getElementById("gearbox") as HTMLInputElement).checked);
     var pricePerDay = Number((document.getElementById("price") as HTMLInputElement).value);
+
     var Image = null;
     this.currentCar = new someCar(brand, model, licensePlate, nrOfDoors, nrOfSeats, gearbox, pricePerDay, Image);
     alert("You just updated the car!");
+
 
 
     this._carService.updateCar(this.currentCar).subscribe(newCar => this.cars.push(newCar));

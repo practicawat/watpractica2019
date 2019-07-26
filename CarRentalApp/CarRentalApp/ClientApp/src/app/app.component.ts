@@ -13,11 +13,12 @@ export class AppComponent implements OnInit{
   public homeButtonClass = {};
   public carListButtonClass = {};
   public contactButtonClass = {};
+  public addCarButtonClass = {};
   public e : Event;
 
   constructor(private router: Router){
     this.buttons = new Array<boolean>();
-    this.buttons.push(true,false,false)
+    this.buttons.push(true,false,false,false)
 
   }
   ngOnInit() {
@@ -48,6 +49,14 @@ export class AppComponent implements OnInit{
       }
       this.buttons[2] = true;
     }
+
+
+    if(window.location.href.includes('/add-car')){
+      for(var i = 0; i < this.buttons.length ; i++){
+        this.buttons[i] = false;
+      }
+      this.buttons[3] = true;
+    }
   }
 
   initializeButtonClasses = () =>{
@@ -63,6 +72,10 @@ export class AppComponent implements OnInit{
     this.contactButtonClass = {
       "nav-item" : true,
       "active" : this.buttons[2] === true,
+    }
+    this.addCarButtonClass = {
+      "nav-item" : true,
+      "active" : this.buttons[3] === true,
     }
   }
 

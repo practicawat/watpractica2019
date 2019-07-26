@@ -61,7 +61,7 @@ export class AddNewCarComponent {
       this.newCarForm.controls['doornb'].value,
       Boolean(this.newCarForm.controls['gearbox'].value),
       this.newCarForm.controls['price'].value,
-      imageList
+      imageList = null
     );
 
  

@@ -31,10 +31,10 @@ export class CarService {
 
 
 
-
   addNewCar(newCar: Car): Observable<Car>{
     return this.http.post<Car>(this.profileUrl, newCar);
   }
+
 
 
   addNewUser(newUser: InfoUser): Observable<InfoUser> {
@@ -45,19 +45,27 @@ export class CarService {
 
  
 
+
   getConfig() {
     return this.http.get(this.configUrl);
   }
   
 
-  
 
   deleteCar(someCar: Car): Observable<{}> {
+    const urll = `${this.configUrl}/${someCar.licensePlate}`; // DELETE api/Cars/B-81-XJF
+    return this.http.delete(this.randomUrl);
+     
+  }
 
-    const urll = `${this.configUrl}/${someCar.licensePlate}`; // DELETE api/Cars/
+
+  //deleteCar(someCar: Car): Observable<{}> {
+
+
+    const urll = `${this.profileUrl}/${someCar.licensePlate}`; // DELETE api/Cars/
     return this.http.delete(urll);
 
-  }
+  //}
   
   getRandomCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.profileUrlRandom);
