@@ -3,3 +3,4 @@ export interface City {
   cityName: string,
   countyName: string,
 }
+

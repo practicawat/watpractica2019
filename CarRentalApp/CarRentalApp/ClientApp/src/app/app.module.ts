@@ -12,6 +12,8 @@ import { CarListUserComponent } from './car-list-user/car-list-user.component';
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { ConfirmationDeleteComponent } from './confirmation-delete/confirmation-delete.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,32 +22,35 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from './calendar/calendar.component';
 
 
+import {AppRoutingModule, routingComponents} from './app-routing.module';
+import { ContactComponent } from './contact/contact.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CarComponentComponent,
-    AddCarRentalPageComponent,
-    AddNewCarComponent,
-    EditCarComponent,
-    CarListUserComponent,
     CarTableComponent,
-    CarComponentComponent,
     ConfirmationDeleteComponent,
+    routingComponents,
 
-    HomePageComponent,
     CalendarComponent,
+
+    ContactComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    })
+    }),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
