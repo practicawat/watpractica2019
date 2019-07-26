@@ -3,6 +3,11 @@ import { CarService } from 'src/app/services/cars.service';
 import { SearchedCarService } from 'src/app/services/searched-car.service';
 import { findLast } from '@angular/compiler/src/directive_resolver';
 import { ThrowStmt } from '@angular/compiler';
+import { SearchedCar } from 'src/app/models/searchedCar';
+import { isUndefined } from 'util';
+import { Router } from '@angular/router';
+import { Car } from 'src/app/models/car';
+
 export class PageState{
   constructor(
     public firstButton: number,
@@ -11,24 +16,13 @@ export class PageState{
     public fourthButton: number,
     public fifthButton: number,
 
-import { SearchedCar } from 'src/app/models/searchedCar';
-import { isUndefined } from 'util';
-import { Router } from '@angular/router';
-import { Car } from 'src/app/models/car';
-export class PageState{
-  constructor(
-    public firstButton: number,
-    public middleButton: number, 
-    public leftButton: number,
     public isFirstButtonSelected :boolean,
     public isSecondButtonSelected :boolean,
     public isThirdButtonSelected :boolean,
     public isFourthButtonSelected :boolean,
     public isFifthButtonSelected :boolean,
-
-  ){}
-}
-
+  )
+  {}}
 
 
 @Component({

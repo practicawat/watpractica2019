@@ -4,7 +4,7 @@
 
 
 
-<div class="a" >
+<div>
   
     <table align="center">
       <tr>
@@ -55,13 +55,11 @@
       </tr>
       <tr>
         <td colspan="2">Add image files:</td>
-      </tr>
-      <tr>
-        <td></td>
         <td>
-          <input #file type="file" multiple name="fileToUpload" id="fileToUpload" >
+          <input #file type="file" multiple name="fileToUpload" id="fileToUpload">
         </td>
       </tr>
+
       <tr>
         <td></td>
         <td><input type="button" (click)='clickAction($event)' class="btn btn-outline-secondary" value="Update car" /></td>

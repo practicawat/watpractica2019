@@ -54,19 +54,11 @@ export class CarService {
 
 
   deleteCar(someCar: Car): Observable<{}> {
-    const urll = `${this.configUrl}/${someCar.licensePlate}`; // DELETE api/Cars/B-81-XJF
-    return this.http.delete(this.randomUrl);
+    const urll = `${this.profileUrl}/${someCar.licensePlate}`; // DELETE api/Cars/
+    return this.http.delete(urll);
      
   }
 
-
-  //deleteCar(someCar: Car): Observable<{}> {
-
-
-    const urll = `${this.profileUrl}/${someCar.licensePlate}`; // DELETE api/Cars/
-    return this.http.delete(urll);
-
-  //}
   
   getRandomCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.profileUrlRandom);
