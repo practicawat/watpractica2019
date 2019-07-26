@@ -55,7 +55,7 @@ export class CarService {
 
   deleteCar(someCar: Car): Observable<{}> {
 
-    const urll = `${this.configUrl}/${someCar.licensePlate}`; // DELETE api/Cars/
+    const urll = `${this.profileUrl}/${someCar.licensePlate}`; // DELETE api/Cars/
     return this.http.delete(urll);
 
   }
