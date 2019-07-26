@@ -105,15 +105,16 @@ export class CarTableComponent implements OnInit {
       if(this.pageState.isFifthButtonSelected === true)
       {
         this.pageState.isFifthButtonSelected = !this.pageState.isFifthButtonSelected;
+        this.initiatePageManagers();
       }
       else
       {
-        this.pageState.isFourthButtonSelected=this.pageState.isFifthButtonSelected;
-        this.pageState.isThirdButtonSelected=this.pageState.isFourthButtonSelected;
-        this.pageState.isSecondButtonSelected=this.pageState.isThirdButtonSelected;
-        this.pageState.isFirstButtonSelected=this.pageState.isSecondButtonSelected;
-        this.pageState.isSecondButtonSelected = false;
-
+        this.pageState.isFifthButtonSelected=this.pageState.isFourthButtonSelected;
+        this.pageState.isFourthButtonSelected=this.pageState.isThirdButtonSelected;
+        this.pageState.isThirdButtonSelected=this.pageState.isSecondButtonSelected;
+        this.pageState.isSecondButtonSelected=this.pageState.isFirstButtonSelected;
+        this.pageState.isFirstButtonSelected=false;
+        this.initiatePageManagers();
       }
     }
   }
@@ -129,12 +130,17 @@ export class CarTableComponent implements OnInit {
 
       if(this.pageState.isFirstButtonSelected === true)
       {
-        console.log("ftuff");
         this.pageState.isFirstButtonSelected = false ;
+        this.initiatePageManagers();
       }
       else
       {
-
+        this.pageState.isFirstButtonSelected=this.pageState.isSecondButtonSelected;
+        this.pageState.isSecondButtonSelected=this.pageState.isThirdButtonSelected;
+        this.pageState.isThirdButtonSelected=this.pageState.isFourthButtonSelected;
+        this.pageState.isFourthButtonSelected=this.pageState.isFifthButtonSelected;
+        this.pageState.isFifthButtonSelected=false;
+        this.initiatePageManagers();
       }
     }
   }
