@@ -39,10 +39,14 @@
         </tbody>
       </table>
 
+
       <ul class="pagination-center">
-        <button type="button" class="btn btn-default"> << </button>
-        <button type="button" [ngClass]="leftClassManager"(click)="changePage($event)" id="first"> {{pageState.firstButton}} </button>
-        <button type="button" [ngClass]="middleClassManager" (click)="changePage($event)" id="middle">{{pageState.middleButton}} </button>
-        <button type="button" [ngClass]="rightClassManager" (click)="changePage($event)" id="right"> {{pageState.leftButton}} </button>
-        <button type="button" class="btn btn-default"> >> </button>
+        <button type="button" class="btn btn-default" (click)=left(event)> << </button>
+        <button type="button" [ngClass]="firstClassManager"(click)="changePage($event)" id="first">{{pageState.firstButton}}</button>
+        <button type="button" [ngClass]="secondClassManager"(click)="changePage($event)" id="second"> {{pageState.secondButton}} </button>
+        <button type="button" [ngClass]="thirdClassManager" (click)="changePage($event)" id="third">{{pageState.thirdButton}} </button>
+        <button type="button" [ngClass]="fourthClassManager" (click)="changePage($event)" id="fourth"> {{pageState.fourthButton}} </button>
+        <button type="button" [ngClass]="fifthClassManager" (click)="changePage($event)" id="fifth"> {{pageState.fifthButton}} </button>
+        <button type="button" class="btn btn-default" (click)=right(event)> >> </button>
       </ul>
+
