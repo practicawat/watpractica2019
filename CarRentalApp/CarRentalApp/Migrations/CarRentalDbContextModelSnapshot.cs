@@ -119,11 +119,6 @@ namespace CarRentalApp.Migrations
                     b.ToTable("Rentals");
                 });
 
-            modelBuilder.Entity("CarRentalApp.Models.Images", b =>
-                {
-                    b.HasOne("CarRentalApp.Models.Car", "RelatedCar")
-                        .WithMany("ImageList")
-                        .HasForeignKey("RelatedCarLicensePlate");
             modelBuilder.Entity("CarRentalApp.Models.SearchedCar", b =>
                 {
                     b.Property<string>("IdSearchedCar")
@@ -148,6 +143,13 @@ namespace CarRentalApp.Migrations
                     b.HasKey("IdSearchedCar");
 
                     b.ToTable("SearchedCars");
+                });
+
+            modelBuilder.Entity("CarRentalApp.Models.Images", b =>
+                {
+                    b.HasOne("CarRentalApp.Models.Car", "RelatedCar")
+                        .WithMany("ImageList")
+                        .HasForeignKey("RelatedCarLicensePlate");
                 });
 #pragma warning restore 612, 618
         }

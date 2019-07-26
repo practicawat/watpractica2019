@@ -50,8 +50,7 @@ export class AddNewCarComponent {
     var imageList: Images[];
     var myImage = new Images();
     myImage.Img = this.newCarForm.controls['inputGroupFile01'].value;
-    //console.log(this.newCarForm.controls['price'].value + ' price');
-    //console.log(this.newCarForm.controls['gearbox'].value + ' gearbox');
+
 
     imageList = [myImage];
     this.newCar = new someCar(
@@ -66,7 +65,7 @@ export class AddNewCarComponent {
     );
 
  
-  console.log(this.newCar);
+  //console.log(this.newCar);
   this._carService.addNewCar(this.newCar).subscribe(newCar => this.cars.push(newCar));
     alert("New car added!");
 }
@@ -77,35 +76,7 @@ export class AddNewCarComponent {
 
 
 
-  //clickAction(event) {
-    
-
-  //  alert("You just added a new car!");
-  //  var brand = ((document.getElementById("brand") as HTMLInputElement).value);
-  //  var model = ((document.getElementById("brand") as HTMLInputElement).value);
-  //  var licensePlate = ((document.getElementById("licP") as HTMLInputElement).value);
-  //  var nrOfSeats = Number(((document.getElementById("seatnb") as HTMLInputElement).value));
-  //  var nrOfDoors = Number((document.getElementById("doornb") as HTMLInputElement).value);
-  //  var gearbox = ((document.getElementById("gearbox") as HTMLInputElement).checked);
-  //  var pricePerDay = Number((document.getElementById("price") as HTMLInputElement).value);
-
-  //  let newImageObj: Images = new Images();
-  //  newImageObj.Img = ((document.getElementById("inputGroupFile01") as HTMLInputElement).value);;
-  //  let imageList: Images[] = new Array(100);
-  //  imageList[0] = newImageObj;
-  //  newCar = new someCar(brand, model, licensePlate, nrOfDoors, nrOfSeats, gearbox, pricePerDay, imageList);
-
-  
-
-  //  console.log(newCar)
-
-  //  this._carService.addNewCar(newCar).subscribe(newCar => this.cars.push(newCar));
-
-   
-
-     
-  //}
-  
+ 
   ngOnInit() {
 
   }

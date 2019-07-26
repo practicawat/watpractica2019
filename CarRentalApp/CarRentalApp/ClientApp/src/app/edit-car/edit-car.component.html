@@ -1,87 +1,76 @@
 <div class="f" style="text-align:center">
-  <h1 class="d"><br />Edit a car in the system:<br /><br /></h1>
+  <h1 class="d"><br />Update car from the system:<br /><br /></h1>
 </div>
 
 
-<div class="a">
-  <br>
-  Car brand:<br />
-  Car model:<br />
-  License plate:<br />
-  Number of seats:<br />
-  Number of doors:<br />
-  Price per day:<br />
 
-  <br />
-
-  Pictures:<br />
-</div>
-<div class="b">
-  <form #carForm="ngForm">
-    <br>
-
-    <input class="form-control-sm" type="text" value="{{showCars[0].brand}}" id="brand"> <br>
-
-    <input class="form-control-sm" type="text" value="{{showCars[0].model}}" id="model"><br>
-
-    <input class="form-control-sm" type="text" value="{{showCars[0].licensePlate}}" id="licP"><br>
-
-    <input class="form-control-sm" type="text" value="{{showCars[0].nrOfSeats}}" id="seatnb"><br>
-
-    <input class="form-control-sm" type="text" value="{{showCars[0].nrOfDoors}}" id="doornb"><br>
-
-    <input class="form-control-sm" type="text" value="{{showCars[0].pricePerDay}}" id="price"><br>
-
-
-    <input type="checkbox" id="gearbox" name="gearbox" value="{{showCars[0].hasAutomaticGearbox}}">Automatic gearbox<br>
-
-
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-      </div>
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" id="inputGroupFile01"
-               aria-describedby="inputGroupFileAddon01">
-        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-      </div>
-    </div>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-      </div>
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" id="inputGroupFile01"
-               aria-describedby="inputGroupFileAddon01">
-        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-      </div>
-    </div>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-      </div>
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" id="inputGroupFile01"
-               aria-describedby="inputGroupFileAddon01">
-        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-      </div>
-    </div>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-      </div>
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" id="inputGroupFile01"
-               aria-describedby="inputGroupFileAddon01">
-        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-      </div>
-    </div>
+<div class="a" >
+  
+    <table align="center">
+      <tr>
+        <td>Car brand:</td>
+        <td>
+          <input class="form-control-sm" type="text" id="brand" value="{{currentCar.brand}}" required  />
+        </td>
+      </tr>
+      <tr>
+        <td>Car model:</td>
+        <td>
+          <input class="form-control-sm" type="text" id="model"
+                 required value="{{currentCar.model}}"
+                 >
+        </td>
+      </tr>
+      <tr>
+        <td> License plate:</td>
+        <td>
+          <input class="form-control-sm" type="text" id="licP" value="{{currentCar.licensePlate}}" 
+                 required><br>
+        </td>
+      </tr>
+      <tr>
+        <td> Number of seats:</td>
+        <td>
+          <input class="form-control-sm" value="{{currentCar.nrOfSeats}}" type="text" id="seatnb"
+                 required>
+        </td>
+      </tr>
+      <tr>
+        <td>Number of doors:</td>
+        <td>
+          <input class="form-control-sm" value="{{currentCar.nrOfDoors}}" type="text" id="doornb" 
+                 required>
+        </td>
+      </tr>
+      <tr>
+        <td>Price per day:</td>
+        <td>
+          <input class="form-control-sm" value="{{currentCar.pricePerDay}}" type="text" id="price" 
+                 required><br>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="checkbox" value="{{currentCar.hasAutomaticGearbox}}" id="gearbox" >Automatic gearbox<br></td>
+      </tr>
+      <tr>
+        <td colspan="2">Add image files:</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input #file type="file" multiple name="fileToUpload" id="fileToUpload" >
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="button" (click)='clickAction($event)' class="btn btn-outline-secondary" value="Update car" /></td>
+      </tr>
+    </table>
 
 
-  </form>
-  <div style="margin-top:20px">
-    <button (click)='clickAction($event)' class="btn btn-outline-secondary" type="button">Update car information</button>
-  </div>
+  
+
 
 </div>
 
