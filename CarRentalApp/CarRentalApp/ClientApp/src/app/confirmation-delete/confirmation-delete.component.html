@@ -8,18 +8,18 @@
   
   Car brand:
   <label id="carBrand" required name="carBrand">
-    {{cars[0].brand}}
+    {{selectedCar.brand}}
   </label>
   <br />
   <!--<input type="hidden" id="carBrand" required name="carBrand" /><br />-->
-  Car model:{{cars[0].model}}<br />
+  Car model:{{selectedCar.model}}<br />
   Registration number:
   <label id="carPlate" required name="carPlate">
-    {{cars[0].licensePlate}}
+    {{selectedCar.licensePlate}}
   </label>
   <br />
-  Number of seats:{{cars[0].nrOfSeats}}<br />
-  Number of doors:{{cars[0].nrOfDoors}}<br />
+  Number of seats:{{selectedCar.nrOfSeats}}<br />
+  Number of doors:{{selectedCar.nrOfDoors}}<br />
   <br />
   <br />
 
@@ -34,18 +34,9 @@
 <br />
 <br />
 <br />
-<!--<div class="e" >
 
-  <button  (click)="clickAction($event)" class="btn btn-primary btn-md" type="button">Delete record</button>
-
-</div>
-<div class="f">
-
-  <button (click)="clickActionDeleteNo($event)" class="btn btn-primary btn-md" type="button">No</button>
-
-</div>-->
 <div  class="e">
-  <button type="button"class=" btn-primary btn-primary btn-lg">Delete</button>
-  <button type="button" class=" btn-primary btn-primary btn-lg">No</button>
+      <button type="button" (click)=clickAction($event) class=" btn-primary btn-primary btn-lg" onclick="window.location.href = 'car-list-user' ">Delete</button>
+      <button type="button" class=" btn-primary btn-primary btn-lg" onclick="window.location.href = 'car-list-user' ">No</button>
 </div>
  

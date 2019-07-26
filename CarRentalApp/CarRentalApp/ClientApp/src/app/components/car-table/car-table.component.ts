@@ -52,23 +52,20 @@ export class CarTableComponent implements OnInit {
 
 
   ngOnInit() {
-    this._carService.getAllCars()
-      .subscribe(data=>{ 
-        this.cars = data
-        this.showCars = this.cars.slice(0,3)
-      })
-      this.currentPage = 1;
       
     if (isUndefined(history.state.data) || isUndefined(history.state.data.cars)) {
       this._carService.getAllCars()
         .subscribe(data => {
           this.cars = data
           this.showCars = this.cars.slice(0, 3)
+          this.currentPage = 1;
         })
     } else {
       this.cars = history.state.data.cars;
       this.showCars = this.cars.slice(0, 3);
     }
+
+   
   }
 
   rentClick(event: any, idButton) {
@@ -81,6 +78,17 @@ export class CarTableComponent implements OnInit {
   deleteClick(event: any, idButton){
     //console.log(this.showCars[idButton])
     this.router.navigate(['/confirmation-delete'], {state: {data:{selectedCar: this.showCars[idButton]}}});
+  }
+
+  editClick(event: any, idButton){
+    //console.log(this.showCars[idButton])
+    this.router.navigate(['/edit-car'], {state: {data:{selectedCar: this.showCars[idButton]}}});
+  }
+
+
+
+  testbutton = (e) =>{
+    console.log(this.cars)
   }
 
 
@@ -187,7 +195,7 @@ export class CarTableComponent implements OnInit {
         this.showCars = this.cars.slice(0,3);
       }
       else
-        this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
+        this.showCars = this.cars.slice((this.currentPage-1)*3,(this.currentPage-1)*3+3);
       this.initiatePageManagers()
     }
     if(target.attributes.id.value ==="second"){
@@ -196,7 +204,8 @@ export class CarTableComponent implements OnInit {
       this.pageState.isThirdButtonSelected = false;
       this.pageState.isFourthButtonSelected = false;
       this.pageState.isFifthButtonSelected = false;
-      this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
+      this.currentPage = this.pageState.secondButton
+      this.showCars = this.cars.slice((this.currentPage-1)*3,(this.currentPage-1)*3+3);
       this.initiatePageManagers()
     }
     if(target.attributes.id.value ==="third"){
@@ -205,7 +214,8 @@ export class CarTableComponent implements OnInit {
       this.pageState.isThirdButtonSelected = true;
       this.pageState.isFourthButtonSelected = false;
       this.pageState.isFifthButtonSelected = false;
-      this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
+      this.currentPage = this.pageState.thirdButton
+      this.showCars = this.cars.slice((this.currentPage-1)*3,(this.currentPage-1)*3+3);
       this.initiatePageManagers()
     }
     if(target.attributes.id.value ==="fourth"){
@@ -214,7 +224,8 @@ export class CarTableComponent implements OnInit {
       this.pageState.isThirdButtonSelected = false;
       this.pageState.isFourthButtonSelected = true;
       this.pageState.isFifthButtonSelected = false;
-      this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
+      this.currentPage = this.pageState.fourthButton
+      this.showCars = this.cars.slice((this.currentPage-1)*3,(this.currentPage-1)*3+3);
       this.initiatePageManagers()
     }
     if(target.attributes.id.value ==="fifth"){
@@ -223,7 +234,8 @@ export class CarTableComponent implements OnInit {
       this.pageState.isThirdButtonSelected = false;
       this.pageState.isFourthButtonSelected = false;
       this.pageState.isFifthButtonSelected = true;
-      this.showCars = this.cars.slice(this.currentPage*3,this.currentPage*3+3);
+      this.currentPage = this.pageState.fifthButton
+      this.showCars = this.cars.slice((this.currentPage-1)*3,(this.currentPage-1)*3+3);
       this.initiatePageManagers()
   }
 

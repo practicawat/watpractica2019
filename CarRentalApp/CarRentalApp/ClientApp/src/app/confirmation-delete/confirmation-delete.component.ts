@@ -26,10 +26,6 @@ export class ConfirmationDeleteComponent implements OnInit {
 
 
   clickAction(event) {
-    alert("Butonul a fost apasat!");
-   // var licensePlate = ((HTMLDocument.arguments.carPlate as HTMLLabelElement).getAttributeNode);
-    console.log(this.selectedCar + '123asdasdsa') 
-    debugger
     this._carService.deleteCar(this.selectedCar)
       .subscribe();
 

@@ -60,11 +60,7 @@ export class EditCarComponent implements OnInit {
   
 
   ngOnInit() {
-   this._carService.getAllCars()
-      .subscribe(data => {
-        this.cars = data
-        this.currentCar = this.cars[0]
-      })
+    this.currentCar = history.state.data.selectedCar;
   }
 
 }
