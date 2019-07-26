@@ -9,4 +9,5 @@ export interface Car {
   hasAutomaticGearbox: boolean,
   pricePerDay: number,
   ImageList: Images[],
+
 }

@@ -16,14 +16,13 @@ export class CarService {
   private readonly profileUrlGet: string = "api/Cars/GetCar";
   private readonly profileUrlUser: string = "api/InfoUser";
 
-  private readonly randomUrl: string = 'http://localhost:64738/api/cars/BV-asd-asd';
 
   constructor(protected http: HttpClient) { }
 
 
   updateCar(newCar: Car): Observable<{}> {
-    const urll = `${this.configUrl}/${newCar.licensePlate}`; // UPDATE api/Cars/
-    return this.http.put(this.randomUrl, newCar);
+    const urll = `${this.profileUrl}/${newCar.licensePlate}`; // UPDATE api/Cars/
+    return this.http.put(urll, newCar);
   }
 
   getAllCars(): Observable<Car[]> {
