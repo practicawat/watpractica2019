@@ -6,3 +6,10 @@ h3 {
     background-color: #f5f5f5;
     padding: 15px;
   }
+.ng-star-inserted{
+  background-color: aquamarine;
+}
+
+.cal-cell {
+  background-color:bisque;
+}

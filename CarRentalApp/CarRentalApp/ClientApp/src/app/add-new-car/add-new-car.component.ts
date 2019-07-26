@@ -38,7 +38,6 @@ constructor(private _carService: CarService) { }
 
 
 
-
     alert("You just added a new car!");
     var brand = ((document.getElementById("brand") as HTMLInputElement).value);
     var model = ((document.getElementById("model") as HTMLInputElement).value);
