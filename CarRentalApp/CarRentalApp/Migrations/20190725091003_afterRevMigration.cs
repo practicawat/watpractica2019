@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarRentalApp.Migrations
 {
-    public partial class firstMigration : Migration
+    public partial class afterRevMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

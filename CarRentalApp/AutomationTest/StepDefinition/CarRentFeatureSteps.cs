@@ -11,6 +11,8 @@ namespace AutomationTest.StepDefinition
     {
         IWebDriver driver;
 
+        public object IdWebElement { get; private set; }
+
         [Given(@"chrome instance is open")]
         public void GivenChromeInstanceIsOpen()
         {
@@ -21,7 +23,7 @@ namespace AutomationTest.StepDefinition
         [When(@"set the url")]
         public void WhenSetTheUrl()
         {
-            driver.Url = "http://localhost:59491/home";
+            driver.Url = "http://localhost:59491/add-car-rental-page";
         }
 
 
@@ -47,6 +49,7 @@ namespace AutomationTest.StepDefinition
         {
             IWebElement element = driver.FindElement(By.XPath("//*[@id=\"defaultUnchecked\"]"));
             Assert.IsTrue(element.Enabled);
+            driver.Close();
         }
 
         [Then(@"the label is '(.*)'")]
@@ -57,72 +60,111 @@ namespace AutomationTest.StepDefinition
             driver.Close();
         }
 
-        //[Then(@"the below tabs are available")]
-        //public void ThenTheBelowTabsAreAvailable(Table table)
-        //{
-        //    foreach (var row in table.Rows)
-        //    {
-        //        IWebElement element;
 
-        //        switch (row["tabs"].ToLower())
-        //        {
-        //            case "home":
-        //                // //*[@id="navbarResponsive"]/ul/li[1]/a
-        //                element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[1]"));
 
-        //                break;
-
-        //            case "view all cars":
-        //                element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[2]/a"));
-
-        //                break;
-
-        //            case "contact":
-        //                element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[3]/a"));
-
-        //                break;
-
-        //            default:
-        //                Assert.Fail("unexpected tab was received " + row["tabs"]);
-        //                element = null;
-        //                break;
-        //        }
-
-        //        Assert.AreEqual(row["tabs"], element.Text);
-        //        driver.Close();
-        //    }
-        //}
-
-        [Then(@"the brand is displayed")]
-        public void ThenTheBrandIsDisplayed()
+        [Given(@"chrome instance is open on car rent")]
+        public void GivenChromeInstanceIsOpenOnCarRent()
         {
-            ScenarioContext.Current.Pending();
+            driver = new ChromeDriver();
+            driver.Manage().Window.FullScreen();
+        }
+
+        [When(@"set the url for add-car-rental-page")]
+        public void WhenSetTheUrlForAdd_Car_Rental_Page()
+        {
+            driver.Url = "http://localhost:59491/add-car-rental-page";
+        }
+
+        [Then(@"the photo for add-car-rental-page is displayed")]
+        public void ThenThePhotoForAdd_Car_Rental_PageIsDisplayed()
+        {
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-add-car-rental-page/div[1]/table/tbody/tr/td[1]/div/img"));
+            Assert.IsTrue(element != null);
+            driver.Close();
         }
 
 
 
-        [Then(@"the first car is '(.*)'")]
-        public void ThenTheFirstCarIs(string p0)
+        [Then(@"'(.*)' label is displeyed")]
+        public void ThenLabelIsDispleyed(string label)
         {
-            ScenarioContext.Current.Pending();
+          IWebElement element=driver.FindElement(By.XPath("/html/body/app-root/app-add-car-rental-page/div[1]/table/thead/tr/th[1]"));
+           Assert.AreEqual(label, element.Text);
+            driver.Close();
+        }
+
+        [Then(@"'(.*)' label is displayed for registration number")]
+        public void ThenLabelIsDisplayedForRegistrationNumber(string p0)
+        {
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-add-car-rental-page/div[1]/table/thead/tr/th[2]"));
+            Assert.AreEqual(p0, element.Text);
+            driver.Close();
+        }
+
+        [Then(@"'(.*)' label is displayed for number of doors")]
+        public void ThenLabelIsDisplayedForNumberOfDoors(string p1)
+        {
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-add-car-rental-page/div[1]/table/thead/tr/th[4]"));
+            Assert.AreEqual(p1, element.Text);
+            driver.Close();
+        }
+
+        [Then(@"the button previous is working")]
+        public void ThenTheButtonIsWorking()
+        {
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-add-car-rental-page/div[3]/app-calendar/div[1]/div[1]/div/div[1]"));
+            Assert.IsTrue( element.Enabled);
+            driver.Close();
+        }
+
+        [Then(@"the below tabs are available")]
+        public void ThenTheBelowTabsAreAvailable(Table table)
+        {
+
+            foreach (var row in table.Rows )
+            {
+                IWebElement element;
+                switch (row["tabs"].ToLower())
+                {
+                    case "month":
+                        element = driver.FindElement(By.XPath("/html/body/app-root/app-add-car-rental-page/div[3]/app-calendar/div[1]/div[3]/div/div[1]"));
+                        break;
+
+                    case "week":
+                        element = driver.FindElement(By.XPath("/html/body/app-root/app-add-car-rental-page/div[3]/app-calendar/div[1]/div[3]/div/div[2]"));
+                        break;
+
+                    case "day":
+                        element = driver.FindElement(By.XPath("/html/body/app-root/app-add-car-rental-page/div[3]/app-calendar/div[1]/div[3]/div/div[3]"));
+                        break;
+
+                    default:
+
+                        Assert.Fail("unexpected tab was received " + row["tabs"]);
+                        element = null;
+                        break;
+
+                }
+                Assert.AreEqual(row["tabs"], element.Text);
+            }
+            driver.Close();
         }
 
 
-
-        [Then(@"the second car is '(.*)'")]
-        public void ThenTheSecondCarIs(string p0)
+        [Then(@"first name checkbox is enabled")]
+        public void ThenFirstNameCheckboxIsEnabled()
         {
-            ScenarioContext.Current.Pending();
+            IWebElement element = driver.FindElement(By.XPath("//*[@id=\"userFirstName\"]"));
+            Assert.IsTrue(element.Enabled);
         }
 
-
-
-        [Then(@"the last one is '(.*)'")]
-        public void ThenTheLastOneIs(string p0)
+        [Then(@"and label is '(.*)'")]
+        public void ThenAndLabelIs(string p5)
         {
-            ScenarioContext.Current.Pending();
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-add-car-rental-page/div[2]/label[1]"));
+            Assert.AreEqual(p5.Trim(), element.Text.Trim());
+            driver.Close();
         }
-
 
 
     }
