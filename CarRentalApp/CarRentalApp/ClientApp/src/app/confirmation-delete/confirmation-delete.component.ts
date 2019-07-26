@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from 'src/app/services/cars.service';
+import { Car } from '../models/car';
 
 
 
@@ -9,27 +10,27 @@ import { CarService } from 'src/app/services/cars.service';
   styleUrls: ['./confirmation-delete.component.css']
 })
 export class ConfirmationDeleteComponent implements OnInit {
-  public cars = [];
+
+  public selectedCar: Car
 
   constructor(private _carService: CarService) {
   }
 
   ngOnInit() {
-    this._carService.getAllCars()
-      .subscribe(data => this.cars = data);
+
+      this.selectedCar = history.state.data.selectedCar;
+      console.log(this.selectedCar)
 
   }
 
-  testData = (event) => {
-    console.log(this.cars);
-  }
+
 
   clickAction(event) {
     alert("Butonul a fost apasat!");
-    var licensePlate = ((HTMLDocument.arguments.carPlate as HTMLLabelElement).getAttributeNode);
-
-
-    this._carService.deleteCar(this.cars[0])
+   // var licensePlate = ((HTMLDocument.arguments.carPlate as HTMLLabelElement).getAttributeNode);
+    console.log(this.selectedCar + '123asdasdsa') 
+    debugger
+    this._carService.deleteCar(this.selectedCar)
       .subscribe();
 
     

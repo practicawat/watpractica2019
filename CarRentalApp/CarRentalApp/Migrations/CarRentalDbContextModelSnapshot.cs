@@ -15,7 +15,8 @@ namespace CarRentalApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -25,6 +26,8 @@ namespace CarRentalApp.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Brand");
+
+                    b.Property<string>("CurrentCity");
 
                     b.Property<bool>("HasAutomaticGearbox");
 
@@ -56,6 +59,23 @@ namespace CarRentalApp.Migrations
                     b.HasKey("IDCity");
 
                     b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("CarRentalApp.Models.Images", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Img");
+
+                    b.Property<string>("RelatedCarLicensePlate");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RelatedCarLicensePlate");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("CarRentalApp.Models.InfoUser", b =>
@@ -124,6 +144,13 @@ namespace CarRentalApp.Migrations
                     b.HasKey("IdSearchedCar");
 
                     b.ToTable("SearchedCars");
+                });
+
+            modelBuilder.Entity("CarRentalApp.Models.Images", b =>
+                {
+                    b.HasOne("CarRentalApp.Models.Car", "RelatedCar")
+                        .WithMany("ImageList")
+                        .HasForeignKey("RelatedCarLicensePlate");
                 });
 #pragma warning restore 612, 618
         }

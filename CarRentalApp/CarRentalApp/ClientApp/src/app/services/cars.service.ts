@@ -25,8 +25,8 @@ export class CarService {
 
 
   updateCar(newCar: Car): Observable<{}> {
-    const urll = `${this.configUrl}/${newCar.licensePlate}`; // UPDATE api/Cars/
-    return this.http.put(this.randomUrl, newCar);
+    const urll = `${this.profileUrl}/${newCar.licensePlate}`; // UPDATE api/Cars/
+    return this.http.put(urll, newCar);
   }
 
   getAllCars(): Observable<Car[]> {
@@ -40,32 +40,37 @@ export class CarService {
     return this.http.post<Car>(this.profileUrl, newCar);
   }
 
+
+
   addNewUser(newUser: InfoUser): Observable<InfoUser> {
     return this.http.post<InfoUser>(this.profileUrlUser, newUser);
-
 
   }
   configUrl = 'ClientApp/tsconfig.json';
 
-  //randomUrl = 'http://localhost:59491/api/Cars/';
+ 
+
 
   getConfig() {
     return this.http.get(this.configUrl);
   }
   
 
-  //deleteCar(someCar: Car): Observable<{}> {
-  //  const urll = `${this.configUrl}/${someCar.licensePlate}`; // DELETE api/Cars/B-81-XJF
-  //  return this.http.delete(this.randomUrl);
-     
-  //}
 
   deleteCar(someCar: Car): Observable<{}> {
+    const urll = `${this.configUrl}/${someCar.licensePlate}`; // DELETE api/Cars/B-81-XJF
+    return this.http.delete(this.randomUrl);
+     
+  }
 
-    const urll = `${this.configUrl}/${someCar.licensePlate}`; // DELETE api/Cars/
+
+  //deleteCar(someCar: Car): Observable<{}> {
+
+
+    const urll = `${this.profileUrl}/${someCar.licensePlate}`; // DELETE api/Cars/
     return this.http.delete(urll);
 
-  }
+  //}
   
   getRandomCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.profileUrlRandom);

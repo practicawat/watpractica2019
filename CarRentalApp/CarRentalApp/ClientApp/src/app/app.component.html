@@ -8,24 +8,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="home">
+        <ul class="navbar-nav ml-auto" (onClick)=testClick($event)>
+          <li [ngClass]="homeButtonClass" (onClick)=testClick($event)>
+            <a class="nav-link" (onClick)=testClick($event) href="home">
               Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="car-list-user">View all cars</a>
+          <li [ngClass]="carListButtonClass" (onClick)=testClick($event)>
+            <a class="nav-link" (onClick)=testClick($event) href="car-list-user">View all cars</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+          <li [ngClass]="contactButtonClass" (onClick)=testClick($event)>
+            <a class="nav-link" (onClick)=testClick($event) href="contact">Contact</a>
+          </li>
+          <li [ngClass]="addCarButtonClass" (onClick)=testClick($event)>
+            <a class="nav-link" (onClick)=testClick($event) href="add-car">Add Car</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
+
 <router-outlet></router-outlet>
-
-
