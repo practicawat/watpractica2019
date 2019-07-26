@@ -21,7 +21,7 @@ namespace AutomationTest.StepDefinition
         [When(@"set the url")]
         public void WhenSetTheUrl()
         {
-            driver.Url = "http://localhost:60711/home";
+            driver.Url = "http://localhost:63280/home";
         }
         
         [Then(@"car rent logo is displayed")]
@@ -67,9 +67,9 @@ namespace AutomationTest.StepDefinition
                 {
                     case "home":
                         // //*[@id="navbarResponsive"]/ul/li[1]/a
-                        element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[1]"));
+                        element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[1]/a"));
 
-                        break;
+                        break; 
 
                     case "view all cars":
                         element = driver.FindElement(By.XPath("//*[@id=\"navbarResponsive\"]/ul/li[2]/a"));
@@ -93,7 +93,56 @@ namespace AutomationTest.StepDefinition
         }
 
 
+        [When(@"set the url for car-list")]
+        public void WhenSetTheUrlForCar_List()
+        {
+            driver.Url = "http://localhost:63280/car-list-user";
+        }
+
+
+        [Then(@"car rent logo is displayed for car-list")]
+        public void ThenCarRentLogoIsDisplayedForCar_List()
+        {
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/nav/div/a/img"));
+            Assert.IsTrue(element != null);
+
+            driver.Close();
+        }
+
+
+        [Then(@"car photo is displayed for car-list")]
+        public void ThenCarPhotoIsDisplayedForCar_List()
+        {
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-car-list-user/app-car-table/table/tbody/tr[1]/td[1]/div/img"));
+            Assert.IsTrue(element != null);
+
+            driver.Close();
+        }
+
+
+
+        [Then(@"button is visible")]
+        public void ThenButtonIsVisible()
+        {
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-car-list-user/app-car-table/ul/button[1]"));
+            Assert.IsTrue(element.Enabled);
+        }
+
+        [Then(@"link to rent")]
+        public void ThenLinkToRent()
+        {
+            IWebElement element = driver.FindElement(By.XPath("/html/body/app-root/app-car-list-user/app-car-table/table/tbody/tr[2]/td[5]/a"));
+            Assert.IsTrue(element.Enabled);
+        }
+
+
 
 
     }
+
+
+
+
+
+
 }
