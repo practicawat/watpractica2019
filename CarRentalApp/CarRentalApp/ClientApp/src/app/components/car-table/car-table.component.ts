@@ -64,6 +64,12 @@ export class CarTableComponent implements OnInit {
     // this.showCars[idButton]   
   }
 
+  deleteClick(event: any, idButton){
+    //console.log(this.showCars[idButton])
+    this.router.navigate(['/confirmation-delete'], {state: {data:{selectedCar: this.showCars[idButton]}}});
+  }
+
+
 
   initiatePageManagers = () =>{
     this.leftClassManager = {

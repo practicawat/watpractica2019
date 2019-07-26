@@ -19,15 +19,16 @@
             <a class="nav-link" (onClick)=testClick($event) href="car-list-user">View all cars</a>
           </li>
           <li [ngClass]="contactButtonClass" (onClick)=testClick($event)>
-            <a class="nav-link" (onClick)=testClick($event) href="#">Contact</a>
-
+            <a class="nav-link" (onClick)=testClick($event) href="contact">Contact</a>
+          </li>
+          <li [ngClass]="addCarButtonClass" (onClick)=testClick($event)>
+            <a class="nav-link" (onClick)=testClick($event) href="add-car">Add Car</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <button (click) = testClick($event)>test</button>
 
 <router-outlet></router-outlet>
 

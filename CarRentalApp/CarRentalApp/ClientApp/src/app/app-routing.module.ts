@@ -17,6 +17,7 @@ const routes : Routes = [
 {path: 'confirmation-delete', component: ConfirmationDeleteComponent},
 {path: 'edit-car', component: EditCarComponent},
 {path: 'contact', component: ContactComponent},
+{path: 'add-car', component: AddNewCarComponent}
 ];
 
 @NgModule({
